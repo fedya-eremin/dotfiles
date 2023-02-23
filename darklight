@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# cp $1 ~/Pictures/current_wallpaper.jpg
+while true ; do
+	test $(date +%H) -ge 7 && swww img --transition-type top ~/Pictures/wallpapers/endofeva.jpg
+	test $(date +%H) -ge 17 && swww img --transition-type top ~/Pictures/wallpapers/endofeva1.jpg
+	sleep 30
+done
