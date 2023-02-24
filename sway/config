@@ -21,7 +21,8 @@ set $term kitty
 # on the original workspace that the command was run on.
 set $menu killall rofi || rofi -modes "drun,ssh,emoji,filebrowser" -show drun 
 set $viber killall -9 viber || viber
-set $swww swww init && ~/dotfiles/darklight  
+set $swww swww init && ~/dotfiles/darklight 
+set $nwg killall nwg-bar || nwg-bar
 
 
 #                       Рамка   Фон   Индикатор Родительская_рамка
@@ -188,6 +189,7 @@ bindsym --to-code {
 	$mod+Shift+$right move right
 
 	$mod+grave exec killall autotiling || autotiling &
+	$mod+Escape exec $nwg
        
     # Start a terminal
     $mod+q exec $term

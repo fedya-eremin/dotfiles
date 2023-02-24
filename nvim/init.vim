@@ -185,6 +185,11 @@ lua << EOF
         }
         return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
     end,
+	settings = {
+		analysis = {
+				reportMissingTypeStubs = false,
+			},
+		},
 	}
 
 	require'nvim-treesitter.configs'.setup {

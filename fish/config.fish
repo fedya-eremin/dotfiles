@@ -17,7 +17,9 @@ alias listn="nmcli device wifi list"
 alias connect="nmcli device wifi connect "
 alias activate="source ./venv/bin/activate.fish"
 alias rmr="rm -r"
+alias keyinit="keychain --eval --agents ssh"
 alias keval="keychain --eval"
+
 
 function mkcd
 	mkdir -p $argv;
