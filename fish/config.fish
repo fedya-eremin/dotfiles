@@ -1,7 +1,7 @@
 if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
 
-	# eval $(keychain --eval --quiet mirror)
+	eval $(keychain --eval --quiet mirror)
 end
 
 if status is-login
