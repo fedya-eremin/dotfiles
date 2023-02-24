@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Lock",
+    "exec": "lockscreen",
+    "icon": "/home/main/dotfiles/nwg-bar/system-lock-screen.svg"
+  },
+  {
+    "label": "Logout",
+    "exec": "swaymsg exit",
+    "icon": "/home/main/dotfiles/nwg-bar/system-log-out.svg"
+  },
+  {
+    "label": "Reboot",
+    "exec": "systemctl reboot",
+    "icon": "/home/main/dotfiles/nwg-bar/system-reboot.svg"
+  },
+  {
+    "label": "Shutdown",
+    "exec": "systemctl -i poweroff",
+    "icon": "/home/main/dotfiles/nwg-bar/system-shutdown.svg"
+  }
+]
