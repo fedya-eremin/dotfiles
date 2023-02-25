@@ -118,6 +118,8 @@ lua << EOF
 
 	local status, nvim_lsp = pcall(require, 'lspconfig')
 	local util = require 'lspconfig/util'
+	require("nvim-web-devicons").setup{ default = true }
+	require("nvim-web-devicons").setup{ default = true }
 
 	local opts = { noremap=true, silent=true }
 	vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)

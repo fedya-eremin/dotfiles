@@ -190,6 +190,7 @@ bindsym --to-code {
 
 	$mod+grave exec killall autotiling || autotiling &
 	$mod+Escape exec $nwg
+	$mod+n exec mirrorscreen
        
     # Start a terminal
     $mod+q exec $term
@@ -205,7 +206,8 @@ bindsym --to-code {
     $mod+e layout toggle split
     $mod+f fullscreen
     # Toggle the current focus between tiling and floating mode
-     $mod+v floating toggle
+    $mod+v floating toggle
+	$mod+m exec flatpak run io.github.purplehorrorrus.Meridius
 
     # Swap focus between the tiling area and the floating area
     $mod+space focus mode_toggle
