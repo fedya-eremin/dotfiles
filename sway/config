@@ -21,7 +21,7 @@ set $term kitty
 # on the original workspace that the command was run on.
 set $menu killall rofi || rofi -modes "drun,ssh,emoji,filebrowser" -show drun 
 set $viber killall -9 viber || viber
-set $swww swww init && ~/dotfiles/darklight 
+set $swww swww init ; ~/dotfiles/darklight 
 set $nwg killall nwg-bar || nwg-bar
 
 
