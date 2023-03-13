@@ -27,7 +27,7 @@ set $nwg killall nwg-bar || nwg-bar
 
 #                       Рамка   Фон   Индикатор Родительская_рамка
 client.focused			#7b9282 #7b9282 #7b9282 #7b9282
-client.focused_inactive		#333333 #333333 #333333 #333333
+client.focused_inactive	#333333 #333333 #333333 #333333
 client.unfocused	    #333333 #333333 #333333 #333333
 client.urgent			#333333 #333333 #333333 #333333
 client.placeholder		#333333 #333333 #333333 #333333
@@ -50,8 +50,9 @@ exec_always {
 # Example configuration:
 #
 # output HDMI-A-1 res 1920x1080 mirror eDP-1
-output  eDP-1 pos 0 0
+output eDP-1 pos 0 0
 output HDMI-A-1 resolution 1920x1080 position 0 0
+
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 exec $swww 
@@ -73,7 +74,7 @@ for_window [app_id="(?i)alacritty"] sticky enable
 for_window [class="jetbrains-toolbox"] move position 750 0
 for_window [app_id="easyeffects"] floating enable
 for_window [app_id="easyeffects"] move position 1130 0
-for_window [app_id="gsimplecal"] move position 825 -40
+for_window [app_id="gsimplecal"] move position 790 -40
 for_window [app_id="gsimplecal"] border none
 
 ### Idle configuration

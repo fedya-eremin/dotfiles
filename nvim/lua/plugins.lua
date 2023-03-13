@@ -21,24 +21,24 @@ packer.startup(function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
 
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	-- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        -- newer commits break the syntax highlighting
+        -- commit = 'cfa9b70'
+    }
+	use 'David-Kunz/markid'
 	use "williamboman/mason.nvim"
 	use "williamboman/mason-lspconfig.nvim"
-	use {
-    "ms-jpq/chadtree",
-    	branch = "chad",
-    	run = "python3 -m chadtree deps"
-	}
-	use 'ryanoasis/vim-devicons'
+
 	use 'https://github.com/adelarsq/vim-devicons-emoji'
 	use 'nvim-lualine/lualine.nvim'
-	use { 'kyazdani42/nvim-web-devicons', opt = true }
 
 	use {
 		"windwp/nvim-autopairs",
     	config = function() require("nvim-autopairs").setup {} end
 	}
-	-- use "rafamadriz/friendly-snippets"
 	use({
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.
@@ -49,4 +49,32 @@ packer.startup(function(use)
 	use { 'saadparwaiz1/cmp_luasnip' }
 	use "rafamadriz/friendly-snippets"
 	use 'gko/vim-coloresque'
+	use {
+  		"ray-x/lsp_signature.nvim",
+	}
+	use "nvim-lua/plenary.nvim"
+	use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	-- or                            , branch = '0.1.x',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+	}
+	use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+		'nvim-tree/nvim-web-devicons', -- optional, for file icons
+		},
+		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+	}
+	use 'mxw/vim-jsx'
+	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+	use { "ellisonleao/gruvbox.nvim" }
+	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+	  require("toggleterm").setup()
+	end}
+	-- use "Pocco81/HighStr.nvim"
+	use 'jose-elias-alvarez/null-ls.nvim'
+	use 'dhruvasagar/vim-table-mode'
+	use 'Pocco81/true-zen.nvim'
+	use 'preservim/vim-pencil'
 end)

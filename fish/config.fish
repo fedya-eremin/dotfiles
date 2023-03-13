@@ -22,7 +22,17 @@ function mkcd
 	mkdir -p $argv;
 	cd $argv;
 end
+
+function runc
+	set name $(string sub -e -2 $argv).out
+	gcc $argv -o $name
+	./$name
+end
+
 function kinit
 	eval $(keychain --quiet --eval $argv)
 end
 set PATH $PATH:/home/main/.local/bin
+
+
+
