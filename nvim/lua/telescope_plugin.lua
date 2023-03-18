@@ -4,3 +4,4 @@ vim.keymap.set('n', 'tfg', builtin.live_grep, {})
 vim.keymap.set('n', 'tfb', builtin.buffers, {})
 vim.keymap.set('n', 'tfh', builtin.lsp_references, {})
 vim.keymap.set('n', 'tfx', builtin.quickfix, {})
+require("telescope").load_extension "file_browser"

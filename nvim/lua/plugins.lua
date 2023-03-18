@@ -58,6 +58,10 @@ packer.startup(function(use)
 	-- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	use {
+		"nvim-telescope/telescope-file-browser.nvim",
+		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	}
 	use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 	use {
 		'nvim-tree/nvim-tree.lua',
@@ -77,4 +81,8 @@ packer.startup(function(use)
 	use 'dhruvasagar/vim-table-mode'
 	use 'Pocco81/true-zen.nvim'
 	use 'preservim/vim-pencil'
+	use {
+    	'goolord/alpha-nvim',
+	}
+	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 end)

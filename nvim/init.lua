@@ -1,3 +1,8 @@
+if vim.g.neovide then 
+	vim.o.guifont = "Source Code Pro:h14"
+end
+
+
 require("lspconfig").lua_ls.setup {}
 -- opt section
 vim.g.loaded_netrw = 1
@@ -5,9 +10,12 @@ vim.g.loaded_netrwPlugin = 1
 vim.wo.conceallevel = 1
 
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.swapfile = false
+
+vim.g.mapleader = " "
 
 -- keybindings section
 local bind = vim.keymap
@@ -21,10 +29,10 @@ bind.set('v', '<C-w>y', '\"+y')
 bind.set('n', '<A-t>', ':ToggleTerm<CR>', {silent=true})
 bind.set('t', '<A-t>', '<C-\\><C-n>:ToggleTerm<CR>', {silent=true})
 bind.set('n', '<A-i>', ':TableModeToggle<CR>')
-
+bind.set('n', '<A-n>', ':noh<CR>', {silent=true})
+bind.set('n', '<Leader>p', ':PencilSoft<CR>')
 -- plugin section
 require('plugins')
-
 -- require('lua_ls')
 require('gruvbox').setup {
 	transparent_mode = true,
@@ -39,5 +47,12 @@ require('tree')
 require('null')
 -- require("true-zen.narrow")
 require('telescope_plugin')
+require("telescope").load_extension "file_browser"
+require("start")
 
 
+
+vim.api.nvim_create_autocmd({"VimEnter"}, {
+	pattern = "*",
+	command = ":PencilSoft",
+})

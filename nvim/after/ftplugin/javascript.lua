@@ -5,6 +5,7 @@ vim.opt_local.linebreak = true
 vim.opt_local.spell = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.cmd 'set expandtab'
 -- treesitter Folding
 -- vim.opt_local.foldmethod = "expr"
 -- vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"

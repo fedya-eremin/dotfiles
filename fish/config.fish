@@ -4,7 +4,7 @@ end
 
 
 if status is-login
-	exec sway
+	# exec sway
 end
 
 

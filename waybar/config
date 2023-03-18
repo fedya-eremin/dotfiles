@@ -5,11 +5,11 @@
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["wlr/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio","sway/scratchpad", "tray", "network","backlight", "memory", "sway/language", "battery", "battery#bat2"],
+    "modules-right": ["pulseaudio","sway/scratchpad", "tray", "network","backlight", "memory", "hyprland/language", "battery", "battery#bat2"],
     
-     "sway/workspaces": {
+     "wlr/workspaces": {
          "disable-scroll": false,
          "all-outputs": true,
          "on-click": "activate",
@@ -25,7 +25,7 @@
              "default": "ω"
          }
      },
-    "sway/language": {
+    "hyprland/language": {
         "format": "{}",
         "format-en": "us",
         "format-ru": "ru",
@@ -95,7 +95,7 @@
 		//"timezone": "Asia/Yekaterinburg",
         //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%Y-%m-%d}"
-        "on-click": "killall gsimplecal || gsimplecal"
+        "on-click": "killall gsimplecal || gsimplecal && sudo ydotool click 0xc1"
         
     },
     "cpu": {
@@ -104,7 +104,7 @@
     },
     "memory": {
         "format": "Mem: {}%",
-        "on-click": "killall alacritty || alacritty -e htop"
+        "on-click": "killall alacritty || alacritty -e htop && sudo ydotool click 0xc1"
     },
     "temperature": {
         "thermal-zone": 2,
@@ -144,7 +144,7 @@
 				"format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         //"format-alt": "{ifname}: {ipaddr}/{cidr} ({signalStrength}%)",
-				"on-click": "killall iwgtk || iwgtk"
+				"on-click": "killall iwgtk || iwgtk && sudo ydotool click 0xc1"
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
@@ -164,7 +164,7 @@
             "default": ["", "", ""]
         },
         "ignored-sinks": ["Easy Effects Sink"],
-        "on-click": "killall easyeffects || easyeffects"
+        "on-click": "killall easyeffects || easyeffects && sudo ydotool click 0xc1"
     },
 	//"custom/pacman": {
 	//	"format": "{}  ",
