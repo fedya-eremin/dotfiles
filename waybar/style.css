@@ -58,6 +58,9 @@ button:hover {
     background-color: transparent;
     color: #e0c69f;
 }
+#workspaces button label {
+	font-size: 19px;
+}
 
 #workspaces button:hover {
     background: #E0C69F;

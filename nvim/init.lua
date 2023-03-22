@@ -13,6 +13,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+
+vim.cmd 'set expandtab'
 vim.opt.swapfile = false
 
 vim.g.mapleader = " "
@@ -31,6 +33,8 @@ bind.set('t', '<A-t>', '<C-\\><C-n>:ToggleTerm<CR>', {silent=true})
 bind.set('n', '<A-i>', ':TableModeToggle<CR>')
 bind.set('n', '<A-n>', ':noh<CR>', {silent=true})
 bind.set('n', '<Leader>p', ':PencilSoft<CR>')
+bind.set('n', '<A-m>', ':tabnew<CR>')
+bind.set('n', '<A-a>', ':Telescope aerial<CR>')
 -- plugin section
 require('plugins')
 -- require('lua_ls')
@@ -49,8 +53,7 @@ require('null')
 require('telescope_plugin')
 require("telescope").load_extension "file_browser"
 require("start")
-
-
+require('telescope').load_extension('aerial')
 
 vim.api.nvim_create_autocmd({"VimEnter"}, {
 	pattern = "*",

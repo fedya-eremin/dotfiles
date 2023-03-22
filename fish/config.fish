@@ -4,7 +4,7 @@ end
 
 
 if status is-login
-	# exec sway
+	exec Hyprland
 end
 
 
@@ -16,6 +16,7 @@ alias connect="nmcli device wifi connect "
 alias activate="source ./venv/bin/activate.fish"
 alias rmr="rm -r"
 alias mirrorscreen="wl-mirror -c HDMI-1 &"
+alias dog="cat"
 
 function mkcd
 	mkdir -p $argv;

@@ -13,7 +13,7 @@
          "disable-scroll": false,
          "all-outputs": true,
          "on-click": "activate",
-         "format": "{name}: {icon}",
+         "format": "{icon}",
          "format-icons": {
              "1": "α",
              "2": "β",
@@ -23,7 +23,8 @@
              "urgent": "λ",
              "focused": "σ",
              "default": "ω"
-         }
+         },
+		 "sort-by-number": true
      },
     "hyprland/language": {
         "format": "{}",
