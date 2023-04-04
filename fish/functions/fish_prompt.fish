@@ -1,1 +1,1 @@
-/home/main/.local/share/omf/themes/boxfish/fish_prompt.fish
+/home/lemonade/.local/share/omf/themes/boxfish/fish_prompt.fish

@@ -167,3 +167,12 @@ require('lspconfig').cssls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
+require('lspconfig').vuels.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'vue' },
+    root_dir = util.root_pattern('package.json', 'vue.config.js'),
+    default_config = {
+      root_dir = [[root_pattern("package.json", "vue.config.js")]],
+    },
+}

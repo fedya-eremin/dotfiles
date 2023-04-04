@@ -92,6 +92,23 @@ packer.startup(function(use)
         end
     }
     use {
-        'stevearc/aerial.nvim',
+      'stevearc/aerial.nvim',
+      config = function() require('aerial').setup() end
     }
+    use {
+      'pwntester/octo.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim',
+        'nvim-tree/nvim-web-devicons',
+      },
+      config = function ()
+        require"octo".setup()
+      end
+    }
+    use {
+      'm-demare/hlargs.nvim',
+      requires = { 'nvim-treesitter/nvim-treesitter' }
+    }
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)

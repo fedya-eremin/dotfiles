@@ -2,21 +2,21 @@
   {
     "label": "Lock",
     "exec": "lockscreen",
-    "icon": "/home/main/dotfiles/nwg-bar/system-lock-screen.svg"
+    "icon": "/home/lemonade/dotfiles/nwg-bar/system-lock-screen.svg"
   },
   {
     "label": "Logout",
     "exec": "hyprctl dispatch exit",
-    "icon": "/home/main/dotfiles/nwg-bar/system-log-out.svg"
+    "icon": "/home/lemonade/dotfiles/nwg-bar/system-log-out.svg"
   },
   {
     "label": "Reboot",
     "exec": "systemctl reboot",
-    "icon": "/home/main/dotfiles/nwg-bar/system-reboot.svg"
+    "icon": "/home/lemonade/dotfiles/nwg-bar/system-reboot.svg"
   },
   {
     "label": "Shutdown",
     "exec": "systemctl -i poweroff",
-    "icon": "/home/main/dotfiles/nwg-bar/system-shutdown.svg"
+    "icon": "/home/lemonade/dotfiles/nwg-bar/system-shutdown.svg"
   }
 ]

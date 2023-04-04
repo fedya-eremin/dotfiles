@@ -3,7 +3,7 @@ if vim.g.neovide then
 end
 
 
-require("lspconfig").lua_ls.setup {}
+-- require("lspconfig").lua_ls.setup {}
 -- opt section
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -59,3 +59,5 @@ vim.api.nvim_create_autocmd({"VimEnter"}, {
 	pattern = "*",
 	command = ":PencilSoft",
 })
+
+require('neogit').setup {}

@@ -4,7 +4,7 @@ end
 
 
 if status is-login
-	exec Hyprland
+	#	exec Hyprland
 end
 
 
@@ -32,7 +32,7 @@ end
 function kinit
 	eval $(keychain --quiet --eval $argv)
 end
-set PATH $PATH:/home/main/.local/bin
-
+set PATH $PATH:/home/lemonade/.local/bin
+set HOME /home/lemonade
 
 
