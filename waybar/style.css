@@ -1,6 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "JetBrains Mono", monospace;
+    /* font-family: "JetBrains Mono Nerd Font", monospace; */
+    font-family: Material Design Icons, JetBrains Mono;
     font-size: 14px;
     margin: 0;
     padding: 0;
@@ -8,9 +9,6 @@
 }
 
 window#waybar {
-    /*background-color: rgba(43, 48, 59, 0.5);*/
-    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-    /*color: #ffffff;*/
     background-color: transparent;
     transition-property: background-color;
     transition-duration: .5s;
@@ -19,15 +17,6 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -57,7 +46,9 @@ button:hover {
     border-radius: 2px;
     background-color: transparent;
     color: #e0c69f;
+    transition: cubic-bezier(.17,.67,.83,.67) .2s;
 }
+
 #workspaces button label {
 	font-size: 19px;
 }
@@ -68,6 +59,8 @@ button:hover {
 }
 
 #workspaces button.active {
+
+    transition: cubic-bezier(.17,.67,.83,.67) .2s;
 	font-weight: bold;
     background-color: #752f20;
     box-shadow: inset 0 -3px #E0C69F;
@@ -98,8 +91,7 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mpd,
-#language,
-#custom-pacman {
+#language {
     background: #752f20;
     padding: 0 8px;
     color: #e0c69f;    
@@ -167,17 +159,9 @@ label:focus {
     color: #000000;
 }
 
-#memory {
-}
-
-#disk {
-}
 
 #backlight {
      background: #752f20;
-}
-
-#network {
 }
 
 #network.disconnected {
@@ -195,7 +179,7 @@ label:focus {
     font-family: 'JetBrains Mono', FontAwesome;
     
     background-color: #64727d;
-    color: #2a5c45;
+    /* color: #2a5c45; */
 }
 
 #wireplumber {
@@ -230,7 +214,7 @@ label:focus {
 }
 
 #tray {
-		min-width: 20px;
+	min-width: 20px;
 }
 
 #tray > .passive {
@@ -292,8 +276,6 @@ label:focus {
 #keyboard-state > label.locked {
     background: rgba(0, 0, 0, 0.2);
 }
-
-
 
 #scratchpad.empty {
 	background-color: transparent;

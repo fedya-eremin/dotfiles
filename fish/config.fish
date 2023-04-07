@@ -4,7 +4,7 @@ end
 
 
 if status is-login
-	#	exec Hyprland
+	exec Hyprland
 end
 
 
@@ -27,6 +27,7 @@ function runc
 	set name $(string sub -e -2 $argv).out
 	gcc $argv -o $name
 	./$name
+    rm $name
 end
 
 function kinit
