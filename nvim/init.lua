@@ -35,6 +35,7 @@ bind.set('n', '<A-n>', ':noh<CR>', {silent=true})
 bind.set('n', '<Leader>p', ':PencilSoft<CR>')
 bind.set('n', '<A-m>', ':tabnew<CR>')
 bind.set('n', '<A-a>', ':Telescope aerial<CR>')
+bind.set('v', '<C-S-c>', ':"+y<CR>')
 -- plugin section
 require('plugins')
 -- require('lua_ls')

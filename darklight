@@ -1,8 +1,0 @@
-#!/usr/bin/fish
-#cp $1 ~/Pictures/current_wallpaper.jpg
-while true
-	test $(date +%H) -ge 7 -a $(date +%H) -lt 17 && swww img --transition-type top ~/Pictures/wallpapers/endofeva.jpg
-	test $(date +%H) -ge 17 && swww img --transition-type top ~/Pictures/wallpapers/endofeva1.jpg
-	test $(date +%H) -lt 7 && swww img --transition-type top ~/Pictures/wallpapers/endofeva1.jpg
-	sleep 30
-end
