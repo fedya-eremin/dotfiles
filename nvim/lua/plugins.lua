@@ -70,9 +70,7 @@ packer.startup(function(use)
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-	use 'mxw/vim-jsx'
 	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-	use { "ellisonleao/gruvbox.nvim" }
 	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
 	  require("toggleterm").setup()
 	end}
@@ -111,4 +109,16 @@ packer.startup(function(use)
       requires = { 'nvim-treesitter/nvim-treesitter' }
     }
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use 'nvim-neorg/neorg'
+    use "rebelot/kanagawa.nvim"
+
+    use({
+      "neanias/everforest-nvim",
+      -- Optional; default configuration will be used if setup isn't called.
+      config = function()
+        require("everforest").setup()
+      end,
+    })
+
+    use '0x100101/lab.nvim'
 end)

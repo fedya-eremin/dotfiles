@@ -18,10 +18,15 @@ XF86AudioLowerVolume
 XF86AudioMicMute
     pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+super + period
+    pactl set-source-volume @DEFAULT_SOURCE@ +5%
+    
+super + comma
+    pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
 #dwt
 super + {slash, question}
-    xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Disable While Typing Enabled" {1,0}
+    xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Disable While Typing Enabled" {0,1}
 
 #screenshot to clipboard
 super + shift + {s,d} 
@@ -38,7 +43,7 @@ super + grave
 
 # terminal emulator
 super + q
-	kitty -1
+	kitty
 
 super + e
     thunar
@@ -89,51 +94,19 @@ super + g
 super + {v,f,shift+v}
     bspc node -t ~{floating,fullscreen,tiled}
 
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
-#
-# focus/swap
-#
-
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous window in the current desktop
-# super + {_,shift + }c
-# 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
-# super + {grave,Tab}
-# 	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
-
-#
-# preselect
-#
-
-# preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
 
 # preselect the ratio
 super + ctrl + {1-9}

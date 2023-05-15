@@ -4,9 +4,6 @@ end
 
 
 if status is-login
-	#xinput set-prop 11 312 1
-	#xinput set-prop 11 285 1
-    # exec sway
     startx
 end
 
@@ -19,6 +16,7 @@ alias connect="nmcli device wifi connect "
 alias activate="source ./venv/bin/activate.fish"
 alias rmr="rm -r"
 alias rmrf="rm -rf"
+alias rmf="rm -f"
 alias mirrorscreen="wl-mirror -Sc HDMI-1 &"
 alias dog="cat"
 
@@ -29,9 +27,9 @@ end
 
 function runc
 	set name $(string sub -e -2 $argv).out
-	gcc $argv -o $name
-	./$name
-    rm $name
+	gcc $argv -o /tmp/$name
+	/tmp/$name
+    rm /tmp/$name
 end
 
 function kinit

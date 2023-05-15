@@ -35,15 +35,18 @@ bind.set('n', '<A-n>', ':noh<CR>', {silent=true})
 bind.set('n', '<Leader>p', ':PencilSoft<CR>')
 bind.set('n', '<A-m>', ':tabnew<CR>')
 bind.set('n', '<A-a>', ':Telescope aerial<CR>')
-bind.set('v', '<C-S-c>', ':"+y<CR>')
--- plugin section
+bind.set('v', '<C-c>', '"+y<CR>')
+
+bind.set('n', '<C-S-d>d', '"_dd<CR>')
+bind.set('v', '<C-S-d>d', '"_dd<CR>')
+
+bind.set('n', '<leader>j', ":Telescope keymaps<CR>")
+
 require('plugins')
--- require('lua_ls')
-require('gruvbox').setup {
-	transparent_mode = true,
-}
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+
+require('theme')
+vim.cmd("colorscheme everforest")
+vim.o.background = 'dark'
 require('lua_line')
 require('lsp_config')
 require('cmp_completions')
@@ -56,9 +59,15 @@ require("telescope").load_extension "file_browser"
 require("start")
 require('telescope').load_extension('aerial')
 
-vim.api.nvim_create_autocmd({"VimEnter"}, {
-	pattern = "*",
-	command = ":PencilSoft",
-})
-
 require('neogit').setup {}
+require('neorg').setup {
+    load = {
+        ["core.defaults"] = {}
+    }
+}
+
+require('lab').setup {
+  quick_data = {
+    enabled = true,
+  }
+}

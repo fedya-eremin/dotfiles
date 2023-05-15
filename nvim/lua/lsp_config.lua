@@ -29,7 +29,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<space>E', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
@@ -41,10 +41,11 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig').lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    autostart = true,
     settings = {
         Lua = {
             diagnostics = {
-                globals = { "use" },
+                globals = { "use", "vim" },
             },
             workspace = {
                 preloadFileSize = 350,
@@ -147,7 +148,7 @@ require("lspconfig").tsserver.setup {
 require('lspconfig').emmet_ls.setup({
     -- on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', 'javascript.jsx' },
+    filetypes = { 'html', 'htmldjango', 'typescriptreact', 'javascriptreact', },
     init_options = {
         html = {
             options = {

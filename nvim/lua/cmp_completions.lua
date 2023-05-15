@@ -22,5 +22,7 @@ cmp.setup({
 	  { name = 'luasnip' },
   	}, {
       { name = 'buffer' },
+    }, {
+      { name = 'lab.quick_data', keyword_length = 4 }
     })
 })
