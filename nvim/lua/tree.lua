@@ -16,9 +16,9 @@ require("nvim-tree").setup({
 	filters = {
 		dotfiles = true,
 	},
+    live_filter = {
+        prefix = "filter by: ",
+        always_show_folders = false, -- Turn into false from true by default
+    }
 })
-local chadtree_settings = {
-	view = {
-		width = 33,
-	},
-}
+

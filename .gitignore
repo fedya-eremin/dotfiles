@@ -1,3 +1,5 @@
 fish/*
+fish/functions
 !fish/config.fish
 !fish/fish_plugins
+nvim/plugin

@@ -3,7 +3,7 @@
 
 bspc monitor -d α β γ δ ε
 
-bspc config border_width         3.5
+bspc config border_width         3
 bspc config window_gap          12
 bspc config focused_border_color "#E0C69F"
 bspc config normal_border_color "#333333"
@@ -21,7 +21,7 @@ bspc rule -a Thunar state=floating rectangle=800x600+0+0 center=true
 bspc rule -a Connman-gtk state=floating rectangle=650x401+1254+44
 
 
-feh --bg-scale ~/Pictures/wallpapers/reversal-red.jpg
+feh --bg-scale ~/Pictures/wallpapers/kanagawa_dark.jpg
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Natural Scrolling Enabled" 1
 setxkbmap -option grp:alt_shift_toggle us,ru    

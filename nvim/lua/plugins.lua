@@ -71,9 +71,7 @@ packer.startup(function(use)
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-	  require("toggleterm").setup()
-	end}
+    use "numToStr/FTerm.nvim"
 	-- use "Pocco81/HighStr.nvim"
 	use 'jose-elias-alvarez/null-ls.nvim'
 	use 'dhruvasagar/vim-table-mode'
@@ -94,17 +92,6 @@ packer.startup(function(use)
       config = function() require('aerial').setup() end
     }
     use {
-      'pwntester/octo.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope.nvim',
-        'nvim-tree/nvim-web-devicons',
-      },
-      config = function ()
-        require"octo".setup()
-      end
-    }
-    use {
       'm-demare/hlargs.nvim',
       requires = { 'nvim-treesitter/nvim-treesitter' }
     }
@@ -112,13 +99,42 @@ packer.startup(function(use)
     use 'nvim-neorg/neorg'
     use "rebelot/kanagawa.nvim"
 
-    use({
-      "neanias/everforest-nvim",
-      -- Optional; default configuration will be used if setup isn't called.
-      config = function()
-        require("everforest").setup()
-      end,
-    })
+    use 'AlexvZyl/nordic.nvim'
 
-    use '0x100101/lab.nvim'
+    use { '0x100101/lab.nvim', run = 'cd js && npm ci', requires = { 'nvim-lua/plenary.nvim' } }
+    use 'karb94/neoscroll.nvim'
+    use({
+        "epwalsh/obsidian.nvim",
+        config = function()
+          require("obsidian").setup({
+            use_advanced_uri = true,
+            dir = "~/obsidian/main",
+            daily_notes = {
+              folder = "dailies",
+            },
+            completion = {
+              nvim_cmp = true,
+            },
+            note_id_func = function(title)
+              local sane_name = ""
+              if title ~= nil then
+                -- If title is given, transform it into valid file name.
+                sane_name = title:gsub(" ", "_"):gsub("[^A-Za-z0-9-]", ""):lower()
+              else
+                -- If title is nil, just add 4 random uppercase letters to the suffix.
+                for _ in 1, 4 do
+                  sane_name = sane_name .. string.char(math.random(65, 90))
+                end
+              end
+              return sane_name
+            end,
+          })
+        end,
+    })
+    use {
+      'stevearc/oil.nvim',
+      config = function() require('oil').setup() end
+    }
+    use { 'meatballs/magma-nvim', run = ':UpdateRemotePlugins<CR>' }
+    use {'hkupty/iron.nvim'}
 end)

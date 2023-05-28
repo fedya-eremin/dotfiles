@@ -10,7 +10,7 @@ end
 
 alias lsa="ls -la"
 alias ll="ls -l"
-alias clear="clear ; pokemon-colorscripts -n charmander --no-title"
+alias clear="clear ; pokemon-colorscripts -r --no-title"
 alias listn="nmcli device wifi list"
 alias connect="nmcli device wifi connect "
 alias activate="source ./venv/bin/activate.fish"

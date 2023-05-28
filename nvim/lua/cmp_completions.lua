@@ -15,6 +15,7 @@ cmp.setup({
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
 	  ['<Tab>'] = cmp.mapping.select_next_item(),
+	  ['<S-Tab>'] = cmp.mapping.select_prev_item(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
 	}),
 	sources = cmp.config.sources({
@@ -24,5 +25,14 @@ cmp.setup({
       { name = 'buffer' },
     }, {
       { name = 'lab.quick_data', keyword_length = 4 }
-    })
+    }),
+    window = {
+        completion = {
+            border = 'rounded',
+            scrollbar = nil,
+        },
+        documentation = {
+            border = 'rounded'
+        }
+    }
 })
