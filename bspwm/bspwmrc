@@ -21,8 +21,8 @@ bspc rule -a Thunar state=floating rectangle=800x600+0+0 center=true
 bspc rule -a Connman-gtk state=floating rectangle=650x401+1254+44
 
 
-feh --bg-scale ~/Pictures/wallpapers/kanagawa_dark.jpg
+feh --bg-scale ~/dotfiles/wallpapers/kanagawa_dark.jpg
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Natural Scrolling Enabled" 1
-setxkbmap -option grp:alt_shift_toggle us,ru    
+setxkbmap -option grp:alt_shift_toggle,grp:win_space_toggle us,ru    
 libinput-gestures-setup restart
