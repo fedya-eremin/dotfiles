@@ -137,4 +137,6 @@ packer.startup(function(use)
     }
     use { 'meatballs/magma-nvim', run = ':UpdateRemotePlugins<CR>' }
     use {'hkupty/iron.nvim'}
+    use {'ray-x/go.nvim', opt=true, event  = { "BufNewFile", "BufRead", "InsertEnter" },}
+    use {'ray-x/guihua.lua', opt=true} -- recommended if need floating window support
 end)
