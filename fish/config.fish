@@ -1,5 +1,6 @@
 if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
+    eval (starship init fish)
 end
 
 

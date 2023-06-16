@@ -86,13 +86,13 @@ super + g
 #
 
 # set the window state
-# super + {t,shift + t,s,f}
-	# bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
     
 
 
-super + {v,f,shift+v}
-    bspc node -t ~{floating,fullscreen,tiled}
+# super + {v,f,shift+v}
+#     bspc node -t ~{floating,fullscreen,tiled}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
