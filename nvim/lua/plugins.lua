@@ -72,8 +72,22 @@ packer.startup(function(use)
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-    use "numToStr/FTerm.nvim"
 	-- use "Pocco81/HighStr.nvim"
+    
+    use {
+        "https://git.sr.ht/~havi/telescope-toggleterm.nvim",
+        event = "TermOpen",
+        requires = {
+           "akinsho/nvim-toggleterm.lua",
+           "nvim-telescope/telescope.nvim",
+           "nvim-lua/popup.nvim",
+           "nvim-lua/plenary.nvim",
+        },
+        config = function()
+           require("telescope").load_extension "toggleterm"
+        end,
+    }
+
 	use 'jose-elias-alvarez/null-ls.nvim'
 	use 'dhruvasagar/vim-table-mode'
 	use 'Pocco81/true-zen.nvim'
@@ -96,11 +110,8 @@ packer.startup(function(use)
       'm-demare/hlargs.nvim',
       requires = { 'nvim-treesitter/nvim-treesitter' }
     }
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use 'nvim-neorg/neorg'
-    use "rebelot/kanagawa.nvim"
 
-    use 'AlexvZyl/nordic.nvim'
 
     use { '0x100101/lab.nvim', run = 'cd js && npm ci', requires = { 'nvim-lua/plenary.nvim' } }
     use 'karb94/neoscroll.nvim'
@@ -136,8 +147,9 @@ packer.startup(function(use)
       'stevearc/oil.nvim',
       config = function() require('oil').setup() end
     }
-    use { 'meatballs/magma-nvim', run = ':UpdateRemotePlugins<CR>' }
-    use {'hkupty/iron.nvim'}
-    use {'ray-x/go.nvim', opt=true, event  = { "BufNewFile", "BufRead", "InsertEnter" },}
-    use {'ray-x/guihua.lua', opt=true} -- recommended if need floating window support
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua' -- recommended if need floating window support
+
+
+    use 'kdheepak/monochrome.nvim'
 end)

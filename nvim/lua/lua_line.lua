@@ -1,8 +1,8 @@
-local custom_gruvbox = require('lualine.themes.gruvbox')
+local my_theme = require('lualine.themes.papercolor_dark')
 require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = custom_gruvbox,
+    theme = my_theme,
     component_separators = { left = '|', right = '|'},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -19,8 +19,8 @@ require('lualine').setup({
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_a = {'mode', 'diff'},
+    lualine_b = {'branch', },
     lualine_c = {'filename', 'aerial'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},

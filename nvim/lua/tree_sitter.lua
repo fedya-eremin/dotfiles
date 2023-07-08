@@ -31,7 +31,7 @@ require("nvim-treesitter.configs").setup {
 		},
 	},
 	rainbow = {
-		enable = true,
+		enable = false,
 		extended_mode = true, -- Highlight also non-parentheses delimiters
 		max_file_lines = 1000,
 	},
