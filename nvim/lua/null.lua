@@ -1,48 +1,34 @@
-local null_ls = require("null-ls")
+local null_ls_ok, null_ls = pcall(require, "null-ls")
+if not null_ls_ok then
+  return
+end
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-
--- local golangci_lint = {
---     method = null_ls.methods.DIAGNOSTICS,
---     filetypes = { "go" },
---     generator = null_ls.generator({
---         command = "golangci-lint",
---         to_stdin = true,
---         from_stderr = false,
---         args = {
---             "run",
---             "--out-format",
---             "json",
---             "$DIRNAME",
---             "--path-prefix",
---             "$ROOT",
---         },
---         format = "json",
---         check_exit_code = function(code)
---             return code <= 2
---         end,
---         on_output = function(params)
---             local diags = {}
---             for _, d in ipairs(params.output.Issues) do
---                 if d.Pos.Filename == params.bufname then
---                     table.insert(diags, {
---                         row = d.Pos.Line,
---                         col = d.Pos.Column,
---                         message = d.Text,
---                     })
---                 end
---             end
---             return diags
---         end,
---     }),
--- }
--- -- add to other sources or register individually
--- null_ls.register(golangci_lint)
+local sources = {
+  -- python
+  null_ls.builtins.formatting.black.with({
+    extra_args = { "--line-length=80" }
+  }),
+ --  null_ls.builtins.diagnostics.flake8.with({
+	-- prefer_local = ".venv/bin",
+ --  }),
+ --  null_ls.builtins.formatting.isort,
+}
 
 null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.flake8.with({
-			prefer_local = ".venv/bin",
-		}),
-		null_ls.builtins.formatting.black,
-    },
+    sources = sources,
+    -- on_attach = function(client, bufnr)
+    --     if client.supports_method("textDocument/formatting") then
+    --         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    --         vim.api.nvim_create_autocmd("BufWritePre", {
+    --             group = augroup,
+    --             buffer = bufnr,
+    --             callback = function()
+    --                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+    --                 vim.lsp.buf.format({ async = false })
+    --             end,
+    --         })
+    --     end
+    -- end,
 })
+

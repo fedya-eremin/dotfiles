@@ -25,6 +25,7 @@ bind.set('v', '<C-w>y', '\"+y')
 bind.set('n', '<A-i>', ':TableModeToggle<CR>')
 bind.set('n', '<A-n>', ':noh<CR>', {silent=true})
 bind.set('n', '<Leader>p', ':PencilSoft<CR>')
+bind.set('n', '<A-w>', ':ToggleTerm<CR>')
 
 -- tabs
 bind.set('n', '<A-m>', ':tabnew<CR>')
@@ -43,8 +44,8 @@ bind.set('n', '<leader>j', ":Telescope keymaps<CR>")
 require('plugins')
 
 -- require('theme')
-vim.cmd("colorscheme monochrome")
--- vim.o.background = 'dark'
+vim.cmd("colorscheme typewriter-night")
+vim.o.background = 'dark'
 require('lua_line')
 require('lsp_config')
 require('cmp_completions')
@@ -68,3 +69,6 @@ require('lab').setup {
 }
 require("oil").setup()
 require("goplug")
+require("term")
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
