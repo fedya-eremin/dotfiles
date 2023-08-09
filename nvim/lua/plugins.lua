@@ -143,10 +143,6 @@ packer.startup(function(use)
           })
         end,
     })
-    use {
-      'stevearc/oil.nvim',
-      config = function() require('oil').setup() end
-    }
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua' -- recommended if need floating window support
 
@@ -162,5 +158,8 @@ packer.startup(function(use)
     --     requires = "rktjmp/lush.nvim"
     -- }
     use {"akinsho/toggleterm.nvim", tag = '*'}
-
+    use 'ziglang/zig.vim'
+    use 'nvim-treesitter/playground'
+    use 'tamago324/lir.nvim'
+    use 'tamago324/lir-git-status.nvim'
 end)

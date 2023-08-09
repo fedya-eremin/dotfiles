@@ -82,18 +82,10 @@ require('lspconfig').eslint.setup {
         format = { enable = true },
     },
 }
--- require('lspconfig').denols.setup {
--- on_attach = on_attach,
--- 	root_dir = util.root_pattern("deno.json"),
--- 	init_options = {
--- 		lint = true,
--- 	},
--- 	filetypes = {'javascript', 'javascriptreact'}
--- }
-
--- require('lspconfig').quick_lint_js.setup {
--- 	filetypes = { 'javascript', 'javascriptreact' }
--- }
+require('lspconfig').zls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
 
 require("lspconfig").tsserver.setup {
     on_attach = function(client)

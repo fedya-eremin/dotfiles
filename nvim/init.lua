@@ -15,7 +15,7 @@ vim.opt.swapfile = false
 vim.g.mapleader = " "
 -- keybindings section
 local bind = vim.keymap
-bind.set('n', '<A-f>', ':Oil<CR>')
+bind.set('n', '<A-f>', ':lua require("lir.float").toggle()<CR>')
 bind.set('t', '<ESC>', '<C-\\><C-n>', {noremap=true})
 bind.set('n', '<A-h>', ':vertical resize -3<CR>', {silent=true})
 bind.set('n', '<A-l>', ':vertical resize +3<CR>', {silent=true})
@@ -67,8 +67,8 @@ require('lab').setup {
     enabled = true,
   }
 }
-require("oil").setup()
 require("goplug")
 require("term")
+require("lir_explorer")
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

@@ -5,7 +5,7 @@ end
 
 
 if status is-login
-    startx
+    # startx
 end
 
 
@@ -20,6 +20,7 @@ alias rmrf="rm -rf"
 alias rmf="rm -f"
 alias mirrorscreen="wl-mirror -Sc HDMI-1 &"
 alias dog="cat"
+alias sudo="doas"
 
 function mkcd
 	mkdir -p $argv;
@@ -29,6 +30,14 @@ end
 function runc
 	set name $(string sub -e -2 $argv).out
 	gcc $argv -o /tmp/$name
+	/tmp/$name
+    rm /tmp/$name
+end
+
+
+function runcpp
+	set name $(string sub -e -2 $argv).out
+	clang++ -Wall -std=c++20 $argv -o /tmp/$name
 	/tmp/$name
     rm /tmp/$name
 end
