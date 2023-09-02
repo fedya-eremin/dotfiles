@@ -149,7 +149,7 @@ element-text, element-icon {
     /* Theme settings */
     highlight: bold italic;
     scrollbar: true;
-    font-family: "JetBrains Mono";
+    font: "Jetbrains Mono NL 12";
 
     /* Gruvbox dark colors */
     gruvbox-dark-bg0-soft:     #531b35;

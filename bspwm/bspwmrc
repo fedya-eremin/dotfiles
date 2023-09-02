@@ -3,10 +3,6 @@
 
 bspc monitor -d α β γ δ ε
 
-pgrep -x sxhkd > /dev/null || sxhkd &
-pgrep -x picom > /dev/null || picom -b
-pgrep -x xfce4-clipman > /dev/null || xfce4-clipman &
-xsetroot -cursor_name left_ptr
 
 bspc config border_width         3
 bspc config window_gap          12
@@ -27,7 +23,6 @@ bspc rule -a Thunar state=floating rectangle=800x600+0+0 center=true
 bspc rule -a Connman-gtk state=floating rectangle=650x401+1254+44
 
 
-feh --bg-scale ~/dotfiles/wallpapers/kanagawa_dark.jpg
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Natural Scrolling Enabled" 1
 setxkbmap -option grp:alt_shift_toggle,grp:win_space_toggle us,ru    

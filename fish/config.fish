@@ -5,7 +5,7 @@ end
 
 
 if status is-login
-    # startx
+    startx
 end
 
 
@@ -20,7 +20,6 @@ alias rmrf="rm -rf"
 alias rmf="rm -f"
 alias mirrorscreen="wl-mirror -Sc HDMI-1 &"
 alias dog="cat"
-alias sudo="doas"
 
 function mkcd
 	mkdir -p $argv;
@@ -49,3 +48,8 @@ set PATH $PATH:$HOME/.local/bin:$HOME/dotfiles/scripts/ #:/usr/lib/docker/cli-pl
 set HOME /home/lemonade
 
 
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/lemonade/.ghcup/bin # ghcup-env
+
+# opam configuration
+source /home/lemonade/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
