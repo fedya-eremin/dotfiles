@@ -1,6 +1,8 @@
 {
   "LuaSnip": { "branch": "master", "commit": "ea7d7ea510c641c4f15042becd27f35b3e5b3c2b" },
+  "cmp-cmdline": { "branch": "main", "commit": "8ee981b4a91f536f52add291594e89fb6645e451" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
+  "haskell-snippets.nvim": { "branch": "master", "commit": "0aa75efc6ebc99d119ab32b4d2a03c37bd6e37a8" },
   "haskell-tools.nvim": { "branch": "2.x.x", "commit": "fd7c33cc3e893a12c1d90aca9ff7ede7d01f003d" },
   "kanagawa.nvim": { "branch": "master", "commit": "0a24e504a3a278849ad0aef31cd6dd24c73ca3db" },
   "lazy.nvim": { "branch": "main", "commit": "2a9354c7d2368d78cbd5575a51a2af5bd8a6ad01" },
