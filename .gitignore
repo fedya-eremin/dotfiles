@@ -4,3 +4,4 @@ fish/functions
 !fish/fish_plugins
 nvim/plugin
 tmux/plugins
+nvim/lazy-lock.json
