@@ -46,6 +46,7 @@ function kinit
 end
 set PATH $PATH:$HOME/.local/bin:$HOME/dotfiles/scripts/ #:/usr/lib/docker/cli-plugins/
 set HOME /home/lemonade
+set EDITOR nvim
 
 
 bind \cq 'tmux a -t trash'
