@@ -1,7 +1,0 @@
-#!/bin/bash
-
-grim -t jpeg -q 70 ~/Pictures/wallpapers/orig.jpeg
-
-convert ~/Pictures/wallpapers/orig.jpeg -scale 2.5% -resize 5000% ~/Pictures/wallpapers/lockscreen.jpeg
-
-swaylock
