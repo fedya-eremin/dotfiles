@@ -4,7 +4,7 @@ if status is-interactive
 end
 
 
-if status is-login
+if test "$tty" = "/dev/tty1"
     startx
 end
 
@@ -48,6 +48,9 @@ set PATH $PATH:$HOME/.local/bin:$HOME/dotfiles/scripts/ #:/usr/lib/docker/cli-pl
 set HOME /home/lemonade
 
 
+bind \cq 'tmux a -t trash'
+set -U fish_cursor_default block
+set -U fish_cursor_insert block
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/lemonade/.ghcup/bin # ghcup-env
 
