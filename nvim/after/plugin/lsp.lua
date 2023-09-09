@@ -10,10 +10,6 @@ lsp.ensure_installed({
 })
 lsp.on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	lsp.default_keymaps({ buffer = bufnr })
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	if client.resolved_capabilities.code_lens then
 		local codelens = vim.api.nvim_create_augroup("LSPCodeLens", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {

@@ -48,40 +48,17 @@ return {
 			.. "&& cmake --build build --config Release && cmake --install build --prefix build",
 	},
 	"jose-elias-alvarez/null-ls.nvim",
-	"meatballs/notebook.nvim",
+	"tpope/vim-fugitive",
 	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = "mfussenegger/nvim-dap",
-		config = function()
-			local dap = require("dap")
-			local dapui = require("dapui")
-			dapui.setup()
-			dap.listeners.after.event_initialized["dapui_config"] = function()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated["dapui_config"] = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited["dapui_config"] = function()
-				dapui.close()
-			end
-		end,
+		"kevinhwang91/nvim-ufo",
+		dependencies = "kevinhwang91/promise-async",
 	},
+	{ "lukas-reineke/indent-blankline.nvim" },
+	-- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
 	{
-		"mfussenegger/nvim-dap",
+		"numToStr/Comment.nvim",
+		lazy = false,
 	},
-	{
-		"mfussenegger/nvim-dap-python",
-		ft = "python",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
-		},
-		config = function(_, opts)
-			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-			require("dap-python").setup(path)
-			require("core.dap-bindings")
-		end,
-	},
-    "tpope/vim-fugitive",
+	"windwp/nvim-ts-autotag",
+	"MaxMEllon/vim-jsx-pretty",
 }

@@ -4,10 +4,15 @@ if status is-interactive
 end
 
 
-if test "$tty" = "/dev/tty1"
+if status is-login
+and not set -q TMUX
     startx
 end
 
+if status is-interactive 
+and not set -q TMUX
+    tmux start-server && tmux run ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux a
+end
 
 alias lsa="ls -la"
 alias ll="ls -l"
@@ -18,7 +23,6 @@ alias activate="source ./venv/bin/activate.fish"
 alias rmr="rm -r"
 alias rmrf="rm -rf"
 alias rmf="rm -f"
-alias mirrorscreen="wl-mirror -Sc HDMI-1 &"
 alias dog="cat"
 
 function mkcd
@@ -49,7 +53,8 @@ set HOME /home/lemonade
 set EDITOR nvim
 
 
-bind \cq 'tmux a -t trash'
+bind \cq 'tmux new -s 0'
+bind \cz ''
 set -U fish_cursor_default block
 set -U fish_cursor_insert block
 
