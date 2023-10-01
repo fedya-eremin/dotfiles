@@ -17,3 +17,15 @@ vim.opt.undofile = true
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+vim.opt.mouse = ""
+vim.opt.scrolloff = 10
+
+vim.diagnostic.config({
+	virtual_text = false,
+})
+
+vim.opt.hlsearch = false
+vim.opt.conceallevel = 2
+vim.opt.list = true
+vim.opt.listchars = "tab:▎ ,space:·"

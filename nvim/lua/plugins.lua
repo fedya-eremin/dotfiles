@@ -1,6 +1,6 @@
 return {
 	"rebelot/kanagawa.nvim",
-	{ "nvim-treesitter/nvim-treesitter", build = "TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
@@ -53,12 +53,59 @@ return {
 		"kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",
 	},
-	{ "lukas-reineke/indent-blankline.nvim" },
-	-- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
 	},
 	"windwp/nvim-ts-autotag",
 	"MaxMEllon/vim-jsx-pretty",
+	{
+		"iamcco/markdown-preview.nvim",
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("aerial").setup()
+		end,
+	},
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap" },
+	},
+	"mfussenegger/nvim-dap-python",
+	{
+		"m-demare/hlargs.nvim",
+		config = function()
+			require("hlargs").setup()
+		end,
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+		config = function()
+			require("ibl").setup({
+				scope = {
+					enabled = false,
+				},
+			})
+		end,
+	},
 }

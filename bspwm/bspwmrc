@@ -23,8 +23,9 @@ bspc config ignore_ewmh_focus true
 bspc rule -a firefox desktop='^2' follow=false 
 bspc rule -a "draw.io" desktop='^4' follow=false
 bspc rule -a "kitty" desktop='^1'
-bspc rule -a Pavucontrol state=floating rectangle=650x400+1254+44
-bspc rule -a htop state=floating rectangle=850x600+1054+44
+bspc rule -a "feh" state=floating
+bspc rule -a Pavucontrol state=floating rectangle=650x400+1064+638
+bspc rule -a htop state=floating rectangle=850x600+1064+438
 bspc rule -a Thunar state=floating rectangle=800x600+0+0 center=true
 
 

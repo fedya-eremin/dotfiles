@@ -32,9 +32,9 @@ super + {slash, question}
 super + shift + {s,d} 
     xfce4-screenshooter -{r,f} -c
 
+#lock it up
 super + apostrophe
-    betterlockscreen -l
-
+    lockscreen
 
 # restart polybar
 super + grave
@@ -50,7 +50,7 @@ super + e
 
 # program launcher
 super + r
-    rofi -show-icons -modes "drun" -show drun
+    pgrep -x "rofi" && killall rofi || rofi -normal-window -show-icons -modes "drun" -show drun
 	
 
 # make sxhkd reload its configuration files:
@@ -73,35 +73,13 @@ super + {_,shift + }c
 super + m
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
-
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
-
-#
-# state/flags
-#
-
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-
-# super + {v,f,shift+v}
-#     bspc node -t ~{floating,fullscreen,tiled}
-
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-
-
-# focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
@@ -114,14 +92,6 @@ super + ctrl + {1-9}
 # cancel the preselection for the focused node
 super + ctrl + space
 	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}

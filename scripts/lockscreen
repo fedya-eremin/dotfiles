@@ -1,7 +1,7 @@
 #!/bin/bash
 
-grim -t jpeg -q 70 ~/Pictures/wallpapers/orig.jpeg
 
-convert ~/Pictures/wallpapers/orig.jpeg -scale 2.5% -resize 5000% ~/Pictures/wallpapers/lockscreen.jpeg
-
-swaylock
+swaylock --effect-blur 5x3 --clock --time-color="#e0c69f" --date-color="#e0c69f" --verif-color="#e0c69f"\
+    --keylayout 1 --layout-color="#e0c69f" \
+    --ring-color="#000000" --inside-color="#000000" --insidever-color="#000000" --ringver-color="#000000" \
+    --insidewrong-color="#752f20" --ringwrong-color="#752f20" --indicator

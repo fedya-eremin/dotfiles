@@ -1,17 +1,17 @@
 if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
-    eval (starship init fish)
+    carapace _carapace | source
 end
 
 
 if status is-login
 and not set -q TMUX
-    startx
+    Hyprland
 end
 
 if status is-interactive 
 and not set -q TMUX
-    tmux start-server && tmux run ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux a
+    systemctl --user start tmux && tmux start-server && tmux run ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux a
 end
 
 alias lsa="ls -la"
@@ -24,6 +24,9 @@ alias rmr="rm -r"
 alias rmrf="rm -rf"
 alias rmf="rm -f"
 alias dog="cat"
+alias vim="nvim"
+alias cicd="flake8 . && pytest"
+
 
 function mkcd
 	mkdir -p $argv;
@@ -32,7 +35,7 @@ end
 
 function runc
 	set name $(string sub -e -2 $argv).out
-	gcc $argv -o /tmp/$name
+	clang -Wall $argv -o /tmp/$name
 	/tmp/$name
     rm /tmp/$name
 end
@@ -50,7 +53,7 @@ function kinit
 end
 set PATH $PATH:$HOME/.local/bin:$HOME/dotfiles/scripts/ #:/usr/lib/docker/cli-plugins/
 set HOME /home/lemonade
-set EDITOR nvim
+set -Ux EDITOR nvim
 
 
 bind \cq 'tmux new -s 0'

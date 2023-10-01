@@ -1,0 +1,4 @@
+#!/bin/bash
+
+swww init
+swww img ~/dotfiles/wallpapers/kanagawa_light.jpg
