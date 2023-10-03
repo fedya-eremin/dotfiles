@@ -3,7 +3,6 @@ if status is-interactive
     carapace _carapace | source
 end
 
-
 if status is-login
 and not set -q TMUX
     Hyprland
@@ -56,7 +55,6 @@ set HOME /home/lemonade
 set -Ux EDITOR nvim
 
 
-bind \cq 'tmux new -s 0'
 bind \cz ''
 set -U fish_cursor_default block
 set -U fish_cursor_insert block
