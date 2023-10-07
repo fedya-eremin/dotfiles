@@ -1,0 +1,615 @@
+ls
+ping google.com
+cd
+nvim .config/nushell/config.nu
+paru -Rns nushell
+exit
+ls .config
+ls .config | grep nu
+cd .config/nushell/
+ls
+nvim config.nu
+config nu
+shells 
+if 
+(<\n>)
+ls | table 
+ls | grep nu
+ls | grep nu | table
+3 * 2
+export
+$env
+$env | grep shell
+n
+o
+p
+pidof Hyprland
+pidof tmux
+tmux a
+pidof tmux
+pidof tmux-server
+pidof tmux-client
+pidof tmux
+pidof tmu
+$@
+$in
+ls
+clear
+nvim
+help config
+config nu
+let EDITOR = nvim
+EDITOR = nvim
+var EDITOR = nvim
+nvim .config/nushell/config.nu
+tmux new
+nvim .config/nushell/config.nu
+if pidof Hyprland 
+pidof Hyprland || Hyprland
+pidof Hyprland or Hyprland
+Hyprland
+pidof Hyprland or Hyprland
+pidof Hyprland
+pidof Hyprland and Hyprland
+help if
+if pidof Hyprland {Hyprlamd}
+if pidof Hyprland == 0  { Hyprlamd }
+if $(pidof Hyprland)
+if (pidof Hyprland)==0 { print Hyprland exists }
+help if
+help modules 
+clear
+if (pidof Hyprland) { print Hyprland exists }
+let x = (pidof Hyprland)
+x
+print x
+print $x
+Hyprland 
+let x = (pidof Hyprland)
+print $x
+if (pidof Hyprland) { print Hyprland exists }
+if bool(pidof Hyprland) { print Hyprland exists }
+poetry env
+poetry env infi
+poetry env info
+if (pidof Hyprland) != "" { print Hyprland exists }
+if (pidof Hyprland) != "" { print "Hyprland exists" }
+Hyprland 
+if (pidof Hyprland) != "" { print "Hyprland exists" } else { print "In tty1" }
+clear
+if (pidof Hyprland) != "" { tmux a } else { Hyprland }
+print "if (pidof Hyprland) != "" { tmux a } else { Hyprland }" | wl-copy
+echo "if (pidof Hyprland) != "" { tmux a } else { Hyprland }" | wl-copy
+config nu
+nvim .config/nushell/config.nu
+nvim dotfiles/fish/config.fish
+tmux a
+tmux new
+help and
+nvim .config/nushell/config.nu
+clear
+cler
+clear
+config nu
+reboot 
+config nu
+help else
+help if
+pidof tmux
+reboot 
+pidof tmux
+source 
+4 * -7 * -6 + -5 * 5 * -8 + 7 * 5 * 3 - 3 * -7 * -8 - -5 * 7 * -6 - 5 * 5 * 4
+-3 * -7 * -6 + -5 * 5 * 8 + 3 * -5 * 5 - 8 * -7 * 3 - 5 * 5 * -3 - -6 * -5 * 4
+-278 * 5
+-3 * 7 * -6 + -5 * -8 * 3 + 4 * 5 * 8 - -3 * 7 * -6 - -8 * 5 * -3 - -5 * 4 * -6
+40 * 2
+-3 * 7 * 5 + -5 * -8 * -5 + 4 * -5 * 5 - -5 * 7 * 8 - 4 * 5 * -5 - -7 * -8 * -3
+-15 + -1390 + 80 + 572
+2 * 4 * 7 + 2 * 8 * 1 - 8 * 2 * 1
+5 * 4 * 7 - 8 * 5 - 2 * 4
+5 * 4 * 7 - 8 * 5
+2 * 4 * 7 - 8 * 5 
+5 * 4 * 7
+cd college/homeworks_23/
+source ./venv/bin/activate
+bash -c source ./venv/bin/activate
+bash -c "source ./venv/bin/activate"
+which python
+bash
+poetry env list
+poetry env shell
+poetry 
+cleare
+clear
+cd
+cd
+clear
+cd dotfiles/
+ls
+listn
+nmcli device wifi list
+nmcli device wifi 
+nmcli device wifi | str replace "\n" "\n-" | from ssv
+nmcli device wifi list | str replace "\n" "\n-" | from ssv
+nmcli device wifi list | str replace "\n" "\n" | from ssv
+bash
+cd ..
+mkdir -ptest_anna
+mkdir -p test_anna
+mkdir -h
+mkdir test_anna
+cd test_anna/
+ls
+lsa
+ls `~/Downloads/Telegram Desktop/` | grep .py
+cat `~/Downloads/Telegram Desktop/main.py` 
+cat `~/Downloads/Telegram Desktop/main (2).py` 
+cp `~/Downloads/Telegram Desktop/main (2).py` main.py
+ls
+cat `~/Downloads/Telegram Desktop/test_main.py` 
+cp `~/Downloads/Telegram Desktop/test_main.py` test_main.py
+ls
+nvim
+poetry init
+ls
+cp ../homeworks_23/.github/ .
+cp ../homeworks_23/.github/ .github
+cp -r ../homeworks_23/.github/ .github
+ls
+lsa
+ls -la
+cp -r ../homeworks_23/setup.cfg setup.cfg
+ls
+nvim
+poery add install flake8==3.9.0 wemake-python-styleguide==0.15.3 bandit==1.7.2
+poetry add install flake8==3.9.0 wemake-python-styleguide==0.15.3 bandit==1.7.2
+nvim .config/nushell/config.nu
+nvim ~/.config/nushell/config.nu
+pkill tmux
+tmux a
+cd college/test_anna/
+overlay use /home/lemonade/.cache/pypoetry/virtualenvs/test-anna-d53mV66J-py3.11/bin/activate.nu
+nvim
+flake8 .
+nvim
+$env.tmux
+$env.TMUX
+cd
+which python
+paru taskade
+shutdown 0
+$env.TMUX
+$env.TMUX == ""
+try $env.TMUX 
+try ($env.TMUX)
+help env
+help #env
+help $env
+$env.TMUX == ""
+$env.TMUX
+exit
+tmux a
+$env.TMUX
+print$env.TMUX
+print $env.TMUX
+$env.TMUX
+$env.TMU
+$env.TMUX
+($env.TMUX)
+$env.TMUX | empty?
+$env | select TMUX | empty
+$env | select TMUX | empty&
+tmux a
+$nu.env | select TMUX | empty?
+$nu.env | select WAYLAND_DISPLAY | empty?
+$env | select WAYLAND_DISPLAY | empty?
+$env | select WAYLAND_DISPLAY | empty
+if ('TMUX' in $env) { print 13 }
+if !('TMUX' in $env) { print 13 }
+help in
+if not ('TMUX' in $env) { print 13 }
+if ('TMUX' in $env) { print 13 }
+paru
+if 1 == 1 and (not ('TMUX' in $env)) { print 13 }
+tmux new
+ls
+clear
+tmux a
+clear
+nvim ~/.config/nushell/config.nu
+clear
+ls
+cd college/test_anna/
+clear
+which python
+cd
+tmux a
+nvim ~/.config/nushell/config.nu
+exit
+nvim
+$env.TMUX | empty?
+$env.TMUX 
+exit
+nvim ~/.config/nushell/config.nu
+cd college/test_anna/
+overlay use /home/lemonade/.cache/pypoetry/virtualenvs/test-anna-d53mV66J-py3.11/bin/activate.nu
+exit
+poetry shell
+reboot 
+clear
+neofetch
+clear
+s
+clear
+paru -Qe | grep heroic
+paru -Rns heroic-games-launcher-bin
+rmrf Games/
+rm -rf Games/
+ls
+rm =
+rm \=
+fiel =
+ls
+less main.py
+rm main.py
+shutdown 0
+clear
+clear
+shutdown 0
+clear
+paru
+paru -Syyu
+paru -S paru
+man paru
+paru -U
+makepkg 
+clear
+mkdir ~/.cache/carapace
+nvim ~/.config/nushell/env.nu
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+less ~/.cache/carapace/init.nu
+carapace 
+ls
+clear
+source ~/.cache/carapace/init.nu
+git commit --porcelain 
+clear
+cd dotfiles/
+ls
+git status
+paru -Sy starship
+$nu.env-path
+nvim ~/.config/nushell/env.nu
+ls
+clear
+cd
+nvim ~/.config/nushell/
+nvim ~/.config/nushell/config.nu
+clear
+clear
+ls
+cd d/n
+cd dot/n
+ls
+clear
+ls
+?
+? Desktop/
+?
+?1
+clear
+gio-querymodules-32 
+cd dotfiles/
+ls
+clear
+history 
+claer
+clear
+? if
+help_menu if
+cwd
+pwd
+claer
+clear
+cd college/test_anna/
+cd ~/college/test_anna/
+overlay use /home/lemonade/.cache/pypoetry/virtualenvs/test-anna-d53mV66J-py3.11/bin/activate.nu
+clear
+exit
+poetry shell
+which python
+clear
+poetry shell
+exit
+overlay use /home/lemonade/.cache/pypoetry/virtualenvs/test-anna-d53mV66J-py3.11/bin/activate.nu
+which python
+exit
+poetry shell
+clear
+starship preset pastel-powerline -o ~/.config/starship.toml
+claer
+clear
+cd
+nvim ~/.config/nushell/config.nu
+exit
+neofetch
+clear
+neofetch
+cd dotfiles/
+neofetch
+man ps
+claer
+clear
+cd
+cd college/homeworks_23/
+activate-global-python-argcomplete 
+overlay use /home/lemonade/.cache/pypoetry/virtualenvs/homeworks-23-eIsbSqH_-py3.11/bin/activate.nu
+nvim dotfiles/kitty/kitty.conf 
+man top
+cd
+clear
+cler
+clear
+ls
+paru -S nim
+paru -S npm
+nvim x.nim
+paru nim lsp
+paru nim 
+du
+du -sh
+du 
+nvim ~/.config/starship.toml 
+nimble install nimlsp
+cd testfiles
+ls
+git clone git@github.com:nim-lang/langserver.git
+rm -rf langserver/
+ls
+clear
+clear
+cd dotfiles/
+nvim
+choosenim
+paru choosenim
+choosenim 
+choosenim stable
+choosenim 1.6.0
+nim
+clear
+nim
+choosenim 1.6.0
+choosenim
+choosenim show
+/home/lemonade/.choosenim/toolchains/nim-1.6.0
+/home/lemonade/.choosenim/toolchains/nim-1.6.0 
+chmod +x /home/lemonade/.choosenim/toolchains/nim-1.6.0 
+ls
+clear
+cd
+/home/lemonade/.choosenim/toolchains/nim-1.6.0 
+sudo chmod +x "/home/lemonade/.choosenim/toolchains/nim-1.6.0"
+/home/lemonade/.choosenim/toolchains/nim-1.6.0
+/home/lemonade/.choosenim/toolchains/nim-1.6.0 -v
+cd
+choosenim
+nim
+nimble
+cd .nimble/bin/
+ls
+.nimble/bin/nim
+~/.nimble/bin/nim
+nim
+./nim
+cd
+nvim nvim/after/
+cd
+nvim ~/.config/nushell/config.nu
+ls ~/.nimble/bin/nim
+nim
+clea
+nvim
+nvim x.nim
+opam
+paru ocaml
+clear
+python
+clera
+clear
+nvim x.nim
+cd
+cd college/seminar/
+ls
+cd
+cd college/seminar/
+paru -S python-dotenv
+nvim
+python script.py 
+paru -S figma-linux
+python script.py --dir=1
+python script.py --dir 
+python script.py --dir 1
+python script.py --dir=1
+python script.py -d 1
+python script.py 
+python script.py -d 123
+python script.py -
+python script.py
+python script.py -d sample
+ls sample/
+python script.py -d sample
+ls sample/
+rm -r sample
+cd
+cd dotfiles/
+python
+cd
+cd test
+cd test_git/
+ls
+python -m venv venv
+source venv/bin/activate
+paru -S python-virtualenv
+python -m virtualenv venv
+source venv/bin/activate.nu
+overlay use env_nu/bin/activate.nu
+overlay use venv/bin/activate.nu
+clear
+ls
+deactivate 
+clear
+rm -rf venv/
+cd ..
+rm -rf test_git/
+ls
+clear
+ps
+ps -aux
+ups
+ps
+ls
+figma-linux 
+rm /opt/figma-linux/libm.so.6
+sudo rm /opt/figma-linux/libm.so.6
+python
+shutdown 0
+cd
+jupyter-lab 
+shutdown 0
+cd
+cd gradio
+ls
+rm -rf test_library/
+git clone git@github.com:Carbon-Group/GlobalVerse-News-Summarizer.git
+cd GlobalVerse-News-Summarizer/
+;s
+ls
+cat requirements.txt 
+ls
+git switch -c feature/frontend
+;s
+ls
+python -m virtualenv venv
+use
+help use
+use module venv/bin/activate.nu
+overlay use venv/bin/activate.nu
+pip install gradio
+overlay use venv/bin/activate.nu
+clear
+nvim .config/starship.toml 
+clear
+ls
+clear
+cd src/frontend/
+paru svelte
+python main.py 
+python
+python main.py 
+pip list
+pip freeze > requirements_frontend.txt
+ls
+cat flagged/
+ls flagged/
+rm -r flagged/
+pip freeze | save requirements_frontend.txt 
+ls
+pip install pyperclip
+nvim
+python main.py 
+shutdown 0
+nvim
+overlay use venv/bin/activate.nu
+cd ../..
+overlay use venv/bin/activate.nu
+python src/frontend/main.py 
+ls
+git add .
+git commit -m "initial version of frontend"
+git push 
+git push origin feature/frontend
+python src/frontend/main.py 
+nvim /home/lemonade/.config/nushell/env.nu
+nvim dotfiles/tmux/
+tmux source-file ~/dotfiles/tmux/tmux.conf
+nvim
+clear
+overlay use venv/bin/activate.nu
+overlay use venv/bin/activate.nu
+claer
+clear
+python src/frontend/main.py 
+wl-copy 
+exit
+$env.WAYLAND_DISPLAY
+export
+bash -c "export"
+clear
+wl-copy 
+reboot
+overlay use venv/bin/activate.nu
+nvim src/frontend/main.py
+overlay use venv/bin/activate.nu
+echo 123 | wl-copy
+wl-copy 
+python src/frontend/main.py 
+clear
+help clear
+clear
+clear
+config nu
+ls
+clear
+ls
+source ~/.config/nushell/config.nu
+ls
+clear
+nvim
+clear
+source ~/.config/nushell/config.nu
+cd testfiles
+mkdir svelte_test
+cd svelte_test/
+npm create svelte@latest my-app
+cd my-app
+nvim
+npm i svelte-adapter-auto
+npm i '@sveltejs/adapter-auto'
+nvim 
+nvim src/routes/Counter.svelte 
+clear
+paru 
+pytho
+python
+clear
+ls input/
+clear
+ls input/
+ls output/
+python script_07_10.py -i input -o output
+ls input/
+ls output/
+nvim networks_and_protocols/
+source ~/.config/nushell/config.nu
+shutdown 0
+paru
+paru -S gimp
+wl-paste 
+cd
+ls
+cd Pictures
+wl-paste | save background.png
+feh background.png
+wl-paste | save background.ымп
+mv background.ымп background.svg
+feh background.svg
+wl-paste | save background.svg
+wl-paste | save -f background.svg
+feh background.svg
+feh background_without_lines.svg
+wl-paste | save background_without_lines.svg
+feh background_without_lines.svg
+shutdown 0
+cp ~/.config/nushell/* ~/dotfiles/nushell/
+mkdir dotfiles/nushell

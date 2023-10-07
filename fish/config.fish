@@ -2,6 +2,9 @@ if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
     carapace _carapace | source
 end
+# NOTE: to get rid of poetry completion error, run:
+# poetry completions fish > ..../fish/vendor_completions.d/poetry.fish
+# because it seems to be kinda fucked up by default
 
 if status is-login
 and not set -q TMUX
@@ -50,16 +53,15 @@ end
 function kinit
 	eval $(keychain --quiet --eval $argv)
 end
-set PATH $PATH:$HOME/.local/bin:$HOME/dotfiles/scripts/ #:/usr/lib/docker/cli-plugins/
+fish_add_path -a $HOME/.local/bin $HOME/dotfiles/scripts/ #:/usr/lib/docker/cli-plugins/
 set HOME /home/lemonade
 set -Ux EDITOR nvim
 
 
 bind \cz ''
+bind \cf 'nvim $(fzf-tmux)'
 set -U fish_cursor_default block
 set -U fish_cursor_insert block
-
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/lemonade/.ghcup/bin # ghcup-env
 
 # opam configuration
 source /home/lemonade/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
