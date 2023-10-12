@@ -7,7 +7,6 @@ lsp.ensure_installed({
 	"lua_ls",
 	"tsserver",
 	"ocamllsp",
-	"nimls",
 })
 lsp.setup()
 
@@ -19,6 +18,7 @@ local sources = {
 	}),
 	null_ls.builtins.formatting.autopep8.with({
 		prefer_local = ".venv/bin",
+		extra_args = { "--ignore E402" },
 	}),
 	-- null_ls.builtins.diagnostics.mypy.with({
 	-- 	prefer_local = ".venv/bin",

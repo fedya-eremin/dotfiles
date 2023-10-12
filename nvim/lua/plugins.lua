@@ -108,4 +108,26 @@ return {
 			})
 		end,
 	},
+	{
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
+	},
+	"rcarriga/nvim-notify",
+	{
+		"michaelb/sniprun",
+		branch = "master",
+
+		build = "sh install.sh",
+
+		config = function()
+			require("sniprun").setup({
+				display = {
+					"NvimNotify",
+				},
+				display_options = {
+					notification_timeout = 10, -- in seconds
+				},
+			})
+		end,
+	},
 }

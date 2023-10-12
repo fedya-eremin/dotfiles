@@ -1,14 +1,25 @@
+set fish_greeting
 if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
-    carapace _carapace | source
 end
 # NOTE: to get rid of poetry completion error, run:
 # poetry completions fish > ..../fish/vendor_completions.d/poetry.fish
 # because it seems to be kinda fucked up by default
 
+bind \cz ''
+bind \cf 'nvim $(fzf-tmux -h)'
+bind \ek 'echo "" ; clear; pokemon-colorscripts -r --no-title ; fish_prompt ; '
+
+function my_clear 
+    set my_prompt $(fish_prompt)
+    clear
+    pokemon-colorscripts -r --no-title && echo $my_prompt
+
+end
+
 if status is-login
 and not set -q TMUX
-    Hyprland
+    sway
 end
 
 if status is-interactive 
@@ -18,7 +29,7 @@ end
 
 alias lsa="ls -la"
 alias ll="ls -l"
-alias clear="clear ; pokemon-colorscripts -r --no-title"
+alias cls="clear ; pokemon-colorscripts -r --no-title"
 alias listn="nmcli device wifi list"
 alias connect="nmcli device wifi connect "
 alias activate="source ./venv/bin/activate.fish"
@@ -58,8 +69,6 @@ set HOME /home/lemonade
 set -Ux EDITOR nvim
 
 
-bind \cz ''
-bind \cf 'nvim $(fzf-tmux)'
 set -U fish_cursor_default block
 set -U fish_cursor_insert block
 
