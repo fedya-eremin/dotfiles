@@ -6,16 +6,17 @@ end
 # poetry completions fish > ..../fish/vendor_completions.d/poetry.fish
 # because it seems to be kinda fucked up by default
 
-bind \cz ''
-bind \cf 'nvim $(fzf-tmux -h)'
-bind \ek 'echo "" ; clear; pokemon-colorscripts -r --no-title ; fish_prompt ; '
-
 function my_clear 
-    set my_prompt $(fish_prompt)
     clear
     pokemon-colorscripts -r --no-title && echo $my_prompt
-
+    commandline -f repaint
 end
+
+bind \cz ''
+bind \cf 'nvim $(fzf-tmux -h)'
+bind -s \ek 'my_clear'
+
+
 
 if status is-login
 and not set -q TMUX
@@ -24,7 +25,10 @@ end
 
 if status is-interactive 
 and not set -q TMUX
-    systemctl --user start tmux && tmux start-server && tmux run ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux a
+    systemctl --user start tmux
+    tmux start-server
+    tmux run ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh
+    tmux a
 end
 
 alias lsa="ls -la"
@@ -37,7 +41,7 @@ alias rmr="rm -r"
 alias rmrf="rm -rf"
 alias rmf="rm -f"
 alias dog="cat"
-alias vim="nvim"
+alias vi="nvim"
 alias cicd="flake8 . && pytest"
 
 

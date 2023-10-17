@@ -43,7 +43,7 @@ end
 
 bind("n", "<leader>d", toggle_diagnostics)
 
-local hlstate = true
+local hlstate = false
 local function toggle_hlsearch()
   if hlstate == true then
     vim.opt.hlsearch = false
