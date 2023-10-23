@@ -43,6 +43,7 @@ alias rmf="rm -f"
 alias dog="cat"
 alias vi="nvim"
 alias cicd="flake8 . && pytest"
+alias sudoe="sudoedit"
 
 
 function mkcd

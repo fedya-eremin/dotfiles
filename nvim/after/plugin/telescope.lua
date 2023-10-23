@@ -1,12 +1,9 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
-local fb_actions = require "telescope._extensions.file_browser.actions"
+local fb_actions = require("telescope._extensions.file_browser.actions")
 telescope.setup({
   defaults = {
     initial_mode = "normal",
-    layout_config = {
-      width = 0.5,
-    },
   },
   pickers = {
     find_files = {
@@ -32,9 +29,9 @@ telescope.setup({
       previewer = false,
       mappings = {
         ["n"] = {
-          ["<S-CR>"] = fb_actions.change_cwd,
-        }
-      }
+          ["<A-Enter>"] = fb_actions.change_cwd,
+        },
+      },
     },
     aerial = {},
   },

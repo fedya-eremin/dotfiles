@@ -5,3 +5,4 @@ fish/functions
 nvim/plugin
 tmux/plugins
 nvim/lazy-lock.json
+*luarc.json
