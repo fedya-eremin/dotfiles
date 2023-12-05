@@ -1,19 +1,24 @@
 return {
-  "rebelot/kanagawa.nvim",
+  {
+    "/mcchrish/zenbones.nvim",
+    dependencies = {
+      "rktjmp/lush.nvim",
+    },
+  },
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },          -- Required
-      { "williamboman/mason.nvim" },        -- Optional
+      { "neovim/nvim-lspconfig" },             -- Required
+      { "williamboman/mason.nvim" },           -- Optional
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },  -- Required
+      { "hrsh7th/nvim-cmp" },     -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" },  -- Required
+      { "L3MON4D3/LuaSnip" },     -- Required
       "hrsh7th/cmp-cmdline",
     },
   },
@@ -35,10 +40,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-  },
-  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
@@ -47,7 +48,6 @@ return {
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release "
         .. "&& cmake --build build --config Release && cmake --install build --prefix build",
   },
-  "jose-elias-alvarez/null-ls.nvim",
   "tpope/vim-fugitive",
   {
     "kevinhwang91/nvim-ufo",
@@ -60,14 +60,10 @@ return {
   "windwp/nvim-ts-autotag",
   "MaxMEllon/vim-jsx-pretty",
   {
-    "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
+    "ellisonleao/glow.nvim",
+    config = true,
+    cmd = "Glow",
   },
-  { "ellisonleao/glow.nvim",           config = true,   cmd = "Glow" },
   {
     "stevearc/aerial.nvim",
     opts = {},
@@ -134,7 +130,25 @@ return {
     "nvimdev/guard.nvim",
     -- Builtin configuration, optional
     dependencies = {
-        "nvimdev/guard-collection",
+      "nvimdev/guard-collection",
     },
-  }
+  },
+  {
+    "mrcjkb/haskell-tools.nvim",
+    version = "^3", -- Recommended
+    branch = "2.x.x",
+    ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+  },
+  {
+    "tamton-aquib/duck.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>dd", function()
+        require("duck").hatch("🐈", 3)
+        require("duck").hatch("🐕", 3)
+      end, {})
+      vim.keymap.set("n", "<leader>dk", function()
+        require("duck").cook()
+      end, {})
+    end,
+  },
 }

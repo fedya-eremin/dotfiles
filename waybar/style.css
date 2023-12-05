@@ -118,15 +118,6 @@ button:hover {
   border-radius: 0 0 10px 10px;
 }
 
-#battery {
-  border-radius: 0 0 10px 0;
-}
-
-#battery.charging,
-#battery.plugged {
-  color: #ffffff;
-  background-color: #26a65b;
-}
 
 @keyframes blink {
   to {

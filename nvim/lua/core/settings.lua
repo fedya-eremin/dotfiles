@@ -22,10 +22,12 @@ vim.opt.mouse = ""
 vim.opt.scrolloff = 10
 
 vim.diagnostic.config({
-	virtual_text = false,
+    virtual_text = false,
 })
 
 vim.opt.hlsearch = false
 vim.opt.conceallevel = 2
 vim.opt.list = true
 vim.opt.listchars = "tab:▎ ,space:·"
+
+vim.g.codeium_disable_bindings = 1

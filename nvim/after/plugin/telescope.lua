@@ -1,6 +1,5 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
-local fb_actions = require("telescope._extensions.file_browser.actions")
 telescope.setup({
   defaults = {
     initial_mode = "normal",
@@ -24,30 +23,19 @@ telescope.setup({
     },
   },
   extensions = {
-    file_browser = {
-      use_fd = false,
-      previewer = false,
-      mappings = {
-        ["n"] = {
-          ["<A-Enter>"] = fb_actions.change_cwd,
-        },
-      },
-    },
     aerial = {},
   },
 })
 
 local builtin = require("telescope.builtin")
-
-telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
 telescope.load_extension("aerial")
-vim.keymap.set("n", "<A-f>", telescope.extensions.file_browser.file_browser, {})
 vim.keymap.set("n", "<leader>v", builtin.find_files, {})
 vim.keymap.set("n", "<A-v>", function()
   builtin.find_files({ cwd = "." })
 end, {})
-vim.keymap.set("n", "<A-g>", builtin.git_files, {})
-vim.keymap.set("n", "<A-b>", builtin.buffers, {})
-vim.keymap.set("n", "<A-J>", builtin.help_tags, {})
-vim.keymap.set("n", "<A-a>", telescope.extensions.aerial.aerial, {})
+vim.keymap.set("n", "<leader>g", builtin.git_files, {})
+vim.keymap.set("n", "<leader>b", builtin.buffers, {})
+vim.keymap.set("n", "<leader>ht", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>rg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>a", telescope.extensions.aerial.aerial, {})

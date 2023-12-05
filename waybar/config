@@ -65,10 +65,11 @@
     },
     "clock": {
         "timezone": "Europe/Moscow",
+        "format": "{:%H:%M:%S}",
+        "interval": 1,
 		//"timezone": "Asia/Yekaterinburg",
         //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
-
+        "format-alt": "{:%b %d,%Y}",
     },
     "backlight": {
         "device": "acpi_video1",
@@ -99,6 +100,7 @@
 				"format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         //"format-alt": "{ifname}: {ipaddr}/{cidr} ({signalStrength}%)",
+        "on-click": "killall connman-gtk || connman-gtk"
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float

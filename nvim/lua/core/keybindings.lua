@@ -2,9 +2,9 @@ local bind = vim.keymap.set
 
 bind("n", "<A-t>", vim.cmd.TroubleToggle)
 bind("n", "<leader>rn", vim.lsp.buf.rename)
-bind("n", "gD", vim.lsp.buf.declaration)
-bind("n", "gd", vim.lsp.buf.definition)
-bind("n", "<leader>h", vim.lsp.buf.hover)
+-- bind("n", "gD", vim.lsp.buf.declaration)
+-- bind("n", "gd", vim.lsp.buf.definition)
+-- bind("n", "<leader>h", vim.lsp.buf.hover)
 bind("n", "<leader>ca", vim.lsp.buf.code_action)
 bind("n", "<leader>cd", function()
   vim.cmd.cd({ "%:p:h" })
@@ -15,6 +15,7 @@ bind("n", "<C-w>a", ":qall<CR>")
 bind("n", "<C-c>", '"+y')
 bind("v", "<C-c>", '"+y')
 bind("t", "<ESC>", "<C-\\><C-n>")
+bind("n", "<A-e>", vim.cmd.Ex)
 
 bind("n", "<Up>", function()
   print("Use k instead")
@@ -43,7 +44,7 @@ end
 
 bind("n", "<leader>d", toggle_diagnostics)
 
-local hlstate = false
+local hlstate = true
 local function toggle_hlsearch()
   if hlstate == true then
     vim.opt.hlsearch = false
