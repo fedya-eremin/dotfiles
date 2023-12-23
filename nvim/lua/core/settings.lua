@@ -14,6 +14,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
+vim.opt.laststatus = 3
+
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -22,7 +24,7 @@ vim.opt.mouse = ""
 vim.opt.scrolloff = 10
 
 vim.diagnostic.config({
-    virtual_text = false,
+  virtual_text = false,
 })
 
 vim.opt.hlsearch = false

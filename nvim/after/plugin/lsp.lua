@@ -13,10 +13,9 @@ lsp.set_sign_icons({
 })
 lsp.ensure_installed({
   -- "pyright",
-  -- "jedi_language_server",
   "lua_ls",
   "tsserver",
-  "ocamllsp",
+  -- "ocamllsp",
   "tailwindcss",
   "svelte",
   "rust_analyzer",

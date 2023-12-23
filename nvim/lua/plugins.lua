@@ -11,14 +11,20 @@ return {
     branch = "v2.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },             -- Required
-      { "williamboman/mason.nvim" },           -- Optional
+      { "neovim/nvim-lspconfig" },          -- Required
+      { "williamboman/mason.nvim" },        -- Optional
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/nvim-cmp" },  -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" },     -- Required
+      {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+      }, -- Required
       "hrsh7th/cmp-cmdline",
     },
   },
@@ -82,11 +88,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap" },
-  },
-  "mfussenegger/nvim-dap-python",
-  {
     "m-demare/hlargs.nvim",
     config = function()
       require("hlargs").setup()
@@ -134,21 +135,10 @@ return {
     },
   },
   {
-    "mrcjkb/haskell-tools.nvim",
-    version = "^3", -- Recommended
-    branch = "2.x.x",
-    ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
-  },
-  {
-    "tamton-aquib/duck.nvim",
-    config = function()
-      vim.keymap.set("n", "<leader>dd", function()
-        require("duck").hatch("🐈", 3)
-        require("duck").hatch("🐕", 3)
-      end, {})
-      vim.keymap.set("n", "<leader>dk", function()
-        require("duck").cook()
-      end, {})
-    end,
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
   },
 }

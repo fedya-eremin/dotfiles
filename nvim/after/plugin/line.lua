@@ -1,6 +1,8 @@
 require("lualine").setup({
   options = {
-    theme = require("lualine.themes.iceberg_dark"),
+    theme = require("lualine.themes.gruvbox-material"),
+    component_separators = "|",
+    sections_separators = "|",
   },
   sections = {
     lualine_x = { "aerial" },
