@@ -21,14 +21,16 @@ bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
 
 bspc rule -a firefox desktop='^2' follow=false 
+bspc rule -a "org.telegram.desktop" desktop='^3' follow=false 
 bspc rule -a "draw.io" desktop='^4' follow=false
-bspc rule -a "kitty" desktop='^1'
+bspc rule -a "alacritty" desktop='^1'
 bspc rule -a "feh" state=floating
 bspc rule -a Pavucontrol state=floating rectangle=650x400+1064+638
 bspc rule -a htop state=floating rectangle=850x600+1064+438
 bspc rule -a Thunar state=floating rectangle=800x600+0+0 center=true
 
-
+~/dotfiles/scripts/startup.fish
+xsetroot -cursor_name left_ptr &
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Natural Scrolling Enabled" 1
 setxkbmap -option grp:alt_shift_toggle,grp:win_space_toggle us,ru    

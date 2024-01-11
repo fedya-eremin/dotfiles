@@ -11,12 +11,12 @@ return {
     branch = "v2.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },          -- Required
-      { "williamboman/mason.nvim" },        -- Optional
+      { "neovim/nvim-lspconfig" },             -- Required
+      { "williamboman/mason.nvim" },           -- Optional
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },  -- Required
+      { "hrsh7th/nvim-cmp" },     -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
       {
         "L3MON4D3/LuaSnip",
@@ -42,7 +42,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.2",
-    -- or                              , branch = '0.1.x',
+    -- or, branch = '0.1.x',
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
@@ -54,7 +54,6 @@ return {
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release "
         .. "&& cmake --build build --config Release && cmake --install build --prefix build",
   },
-  "tpope/vim-fugitive",
   {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
@@ -94,39 +93,10 @@ return {
     end,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {},
-    config = function()
-      require("ibl").setup({
-        scope = {
-          enabled = false,
-        },
-      })
-    end,
-  },
-  {
     "Exafunction/codeium.vim",
     event = "BufEnter",
   },
   "rcarriga/nvim-notify",
-  {
-    "michaelb/sniprun",
-    branch = "master",
-
-    build = "sh install.sh",
-
-    config = function()
-      require("sniprun").setup({
-        display = {
-          "NvimNotify",
-        },
-        display_options = {
-          notification_timeout = 10, -- in seconds
-        },
-      })
-    end,
-  },
   {
     "nvimdev/guard.nvim",
     -- Builtin configuration, optional
@@ -140,5 +110,10 @@ return {
     config = true,
     -- Uncomment next line if you want to follow only stable versions
     -- version = "*"
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^3", -- Recommended
+    ft = { "rust" },
   },
 }

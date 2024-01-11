@@ -34,6 +34,7 @@ exec firefox
 exec swaybg -i dotfiles/wallpapers/kanagawa_light.jpg -m fill
 exec autotiling &
 
+
 ##### WINDOWRULES #####
 for_window [app_id="(?i)thunar"] floating enable
 for_window [app_id="(?i)thunar"] resize set 1000 700

@@ -1,6 +1,4 @@
 set fish_greeting
-set TERM alacritty
-set EDITOR steam-run nvim
 if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
     carapace _carapace | source
@@ -25,13 +23,17 @@ bind \cz ''
 bind -s \ek 'my_clear'
 bind \el 'my_ls'
 bind \cf 'nvim $(fzf-tmux)'
+bind \ed 'pushd ..; commandline -f repaint'
+bind \ef 'popd; commandline -f repaint'
 
 
 if status is-login
 and not set -q TMUX
-    env XDG_CURRENT_DESKTOP=sway dbus-run-session sway
+    # env XDG_CURRENT_DESKTOP=sway dbus-run-session sway
+    startx
 end
 
+alias gnome-polkit="/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 alias lsa="g -l -a --icons"
 alias ll="g -l --icons"
 alias cls="clear ; pokemon-colorscripts -r --no-title"
@@ -48,7 +50,8 @@ alias sudoe="sudoedit"
 alias iamatomic="sudo nixos-rebuild switch"
 alias feh="feh --scale-down --geometry 1000x800"
 # alias conda=" $HOME/anaconda3/bin/conda"
-
+alias info="info --vi-keys"
+alias showmykeysdaddy="wshowkeys -a bottom -a right -b#33333333 -f#e0c69f"
 
 function mkcd
 	mkdir -p $argv;
@@ -73,7 +76,7 @@ end
 function kinit
 	eval $(keychain --quiet --eval $argv)
 end
-set -a fish_user_paths $HOME/.local/bin $HOME/.ghcup/bin/
+set -a fish_user_paths $HOME/.local/bin $HOME/.ghcup/bin/ $HOME/.cargo/bin/
 set HOME /home/lemonade
 set -Ux EDITOR nvim
 
@@ -95,4 +98,3 @@ function condaenv
 end
 # <<< conda initialize <<<
 
-alias info="info --vi-keys"
