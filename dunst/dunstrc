@@ -142,7 +142,7 @@
     max_icon_size = 32
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/ePapirus-Dark/16x16/status/:/usr/share/icons/ePapirus-Dark/16x16/devices/
 
     ### History ###
 
@@ -177,9 +177,9 @@
     force_xwayland = false
     force_xinerama = false
 
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
-    mouse_right_click = close_all
+    mouse_left_click = do_action,close_current
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
 
 [experimental]
     per_monitor_dpi = false
@@ -192,7 +192,7 @@
     timeout = 10
 
 [urgency_normal]
-    background = "#752f20"
+    background = "#264a33"
     foreground = "#e0c69f"
     timeout = 10
 

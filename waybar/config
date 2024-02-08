@@ -1,7 +1,7 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1282, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -64,10 +64,8 @@
 		"show-passive-items": true
     },
     "clock": {
-        "timezone": "Europe/Moscow",
         "format": "{:%H:%M:%S}",
         "interval": 1,
-		//"timezone": "Asia/Yekaterinburg",
         //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%b %d,%Y}",
     },
@@ -120,6 +118,6 @@
             "default": ["", "", " "]
         },
         "ignored-sinks": ["Easy Effects Sink"],
-        "on-click": "killall easyeffects || easyeffects"
+        "on-click": "killall pavucontrol || pavucontrol"
     },
 }

@@ -140,9 +140,6 @@ label:focus {
   background-color: #000000;
 }
 
-#cpu {
-  color: #000000;
-}
 
 #network.disconnected {
   background-color: #a45c7c;
@@ -219,8 +216,8 @@ label:focus {
 }
 
 #mode {
-  border: 1.5px dotted #e0c69f;
-  border-radius: 10px;
+  border: 1.5px solid #e0c69f;
+  background-color: #333333;
   padding: 0 10px;
   margin-left: 25px;
 }

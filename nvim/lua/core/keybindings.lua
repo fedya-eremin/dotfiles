@@ -15,7 +15,7 @@ bind("n", "<C-w>a", ":qall<CR>")
 bind("n", "<C-c>", '"+y')
 bind("v", "<C-c>", '"+y')
 bind("t", "<ESC>", "<C-\\><C-n>")
-bind("n", "<A-e>", vim.cmd.Ex)
+bind("n", "<A-e>", ":lua MiniFiles.open()<CR>", { silent = true })
 
 bind("n", "<Up>", function()
 	print("Use k instead")

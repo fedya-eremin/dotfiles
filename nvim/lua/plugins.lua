@@ -11,12 +11,12 @@ return {
     branch = "v2.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },             -- Required
-      { "williamboman/mason.nvim" },           -- Optional
+      { "neovim/nvim-lspconfig" },          -- Required
+      { "williamboman/mason.nvim" },        -- Optional
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/nvim-cmp" },  -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
       {
         "L3MON4D3/LuaSnip",
@@ -115,5 +115,20 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^3", -- Recommended
     ft = { "rust" },
+  },
+  {
+    "echasnovski/mini.files",
+    version = "*",
+    config = function()
+      require("mini.files").setup()
+    end,
+    lazy = false,
+  },
+  {
+    "nvim-orgmode/orgmode",
+    dependencies = {
+      { "nvim-treesitter/nvim-treesitter", lazy = true },
+    },
+    event = "VeryLazy",
   },
 }

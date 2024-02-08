@@ -7,7 +7,18 @@ vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 require("ufo").setup({
-	provider_selector = function(bufnr, filetype, buftype)
-		return { "treesitter", "indent" }
-	end,
+  ft_ignore = {
+    "org",
+  },
+  provider_selector = function(bufnr, filetype, buftype)
+    return { "treesitter", "indent" }
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "org" },
+  callback = function()
+    require("ufo").detach()
+    vim.opt_local.foldenable = false
+  end
 })

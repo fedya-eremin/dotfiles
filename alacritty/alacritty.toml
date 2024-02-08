@@ -1,22 +1,22 @@
-[colors.bright]
-black = "#64727d"
-blue = "#d4425a"
-cyan = "#7eb45f"
-green = "#858780"
-magenta = "#527763"
-red = "#ec53b0"
-white = "#d9d9d9"
-yellow = "#bc8f2e"
-
 [colors.normal]
-black = "#e0c69f"
-blue = "#d4425a"
-cyan = "#7eb45f"
+black = "#163b24"
+red = "#91362a"
 green = "#858780"
+yellow = "#cf9b53"
+blue = "#bf7763"
 magenta = "#527763"
-red = "#ec53b0"
+cyan = "#7eb45f"
 white = "#d9d9d9"
-yellow = "#bc8f2e"
+
+[colors.bright]
+black = "#163b24"
+red = "#91362a"
+green = "#858780"
+yellow = "#cf9b53"
+blue = "#bf7763"
+magenta = "#527763"
+cyan = "#7eb45f"
+white = "#d9d9d9"
 
 [colors.primary]
 background = "#333333"
@@ -24,7 +24,7 @@ foreground = "#e0c69f"
 
 [font]
 builtin_box_drawing = true
-size = 8.0
+size = 12.0
 
 [font.bold]
 family = "Jetbrains Mono"

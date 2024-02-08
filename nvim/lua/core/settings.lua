@@ -27,7 +27,7 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 vim.opt.hlsearch = false
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 vim.opt.list = true
 vim.opt.listchars = "space:·,tab:··,lead:·,nbsp:·,trail:·"
 
