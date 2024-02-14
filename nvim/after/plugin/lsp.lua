@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local util = require("lspconfig.util")
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
@@ -45,18 +46,9 @@ require("lspconfig").clangd.setup({
   ),
 })
 
-require("lspconfig").pylsp.setup({
+require("lspconfig").pyright.setup({
   on_attach = lsp.on_attach,
   capabilities = lsp.get_capabilities(),
-  settings = {
-    pylsp = {
-      plugins = {
-        pyflakes = { enabled = false },
-        pylint = { enabled = false },
-        pycodestyle = { enabled = false },
-      },
-    },
-  },
 })
 
 require("lspconfig").ocamllsp.setup({
@@ -77,9 +69,14 @@ require("lspconfig").lua_ls.setup({
   },
 })
 
+require("lspconfig").nim_langserver.setup({
+  on_attach = lsp.on_attach,
+  capabilities = lsp.get_capabilities(),
+})
+
 vim.g.rustaceanvim = {
   server = {
     capabilities = lsp.get_capabilities(),
-    single_file_support = true
+    single_file_support = true,
   },
 }

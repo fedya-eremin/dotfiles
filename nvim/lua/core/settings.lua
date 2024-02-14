@@ -24,7 +24,7 @@ vim.opt.mouse = ""
 vim.opt.scrolloff = 10
 
 vim.diagnostic.config({
-	virtual_text = false,
+    virtual_text = false,
 })
 vim.opt.hlsearch = false
 vim.opt.conceallevel = 0

@@ -11,7 +11,19 @@ ft("python")
 ft("c"):fmt("clang-format"):lint("clang-tidy")
 
 ft("lua"):fmt("lsp"):append("stylua")
-
+ft("ocaml"):fmt({
+  cmd = "ocamlformat",
+  args = {
+    "--break-cases=toplevel",
+    "--if-then-else=fit-or-vertical",
+    "--enable-outside-detected-project",
+    "-",
+    "--name",
+  },
+  stdin = true,
+  fname = true,
+  ignore_error = true,
+})
 ft("go"):fmt("gofmt"):lint({
   cmd = "golangci-lint",
   args = { "run" },

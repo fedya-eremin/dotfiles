@@ -101,7 +101,7 @@ end
 
 
 ### ENV
-set -a fish_user_paths $HOME/.local/bin $HOME/.cargo/bin/
+set -a fish_user_paths $HOME/.local/bin $HOME/.cargo/bin/ $HOME/.nimble/bin
 set HOME /home/lemonade
 set -Ux EDITOR nvim
 set -U fish_cursor_default block
@@ -117,3 +117,6 @@ function condaenv
     end
 end
 # <<< conda initialize <<<
+
+# opam configuration
+source /home/lemonade/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
