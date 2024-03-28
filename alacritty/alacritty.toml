@@ -1,5 +1,5 @@
 [colors.normal]
-black = "#163b24"
+black = "#4e614f"
 red = "#91362a"
 green = "#858780"
 yellow = "#cf9b53"
@@ -9,7 +9,7 @@ cyan = "#7eb45f"
 white = "#d9d9d9"
 
 [colors.bright]
-black = "#163b24"
+black = "#4e614f"
 red = "#91362a"
 green = "#858780"
 yellow = "#cf9b53"
@@ -27,19 +27,19 @@ builtin_box_drawing = true
 size = 12.0
 
 [font.bold]
-family = "Jetbrains Mono"
+family = "JetBrainsMono NF Medium"
 style = "Bold"
 
 [font.bold_italic]
-family = "Jetbrains Mono"
+family = "JetBrainsMono NF Medium"
 style = "Bold Italic"
 
 [font.italic]
-family = "Jetbrains Mono"
+family = "JetBrainsMono NF Medium"
 style = "Italic"
 
 [font.normal]
-family = "Jetbrains Mono Semibold"
+family = "JetBrainsMono NF Medium"
 
 [window]
 decorations = "none"

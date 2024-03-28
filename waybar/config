@@ -1,5 +1,5 @@
 {
-    "layer": "top", // Waybar at top layer
+    "layer": "bottom", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1282, // Waybar width
@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio","sway/scratchpad", "tray", "network","backlight", "memory", "sway/language", "battery", "battery#bat2"],
+    "modules-right": ["keyboard-state", "pulseaudio","sway/scratchpad", "tray", "network","backlight", "memory", "sway/language", "battery", "battery#bat2"],
     
      "sway/workspaces": {
          "disable-scroll": false,
@@ -24,18 +24,17 @@
              "default": "ω"
          }
      },
-    "hyprland/language": {
+    "sway/language": {
         "format": "{}",
         "format-en": "us",
         "format-ru": "ru",
      },
     "keyboard-state": {
-        "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{icon}",
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": "Caps Lock",
+            "unlocked": ""
         }
     },
     "sway/mode": {
@@ -72,7 +71,8 @@
     "backlight": {
         "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "scroll-step": 0.2
     },
     "battery": {
         "states": {
@@ -102,7 +102,7 @@
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{volume}% 󰓃 {format_source}",
+        "format": "{volume}% 󰍮 {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "󰓄 {format_source}",

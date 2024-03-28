@@ -30,7 +30,7 @@ bind \ef 'popd; commandline -f repaint'
 
 
 ### ALIASES
-alias gnome-polkit="/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+alias gnome-polkit="/usr/libexec/polkit-gnome-authentication-agent-1"
 alias lsa="g -l -a --icons"
 alias ll="g -l --icons"
 alias cls="clear ; pokemon-colorscripts -r --no-title"
@@ -48,6 +48,7 @@ alias feh="feh --scale-down --geometry 1000x800"
 # alias conda=" $HOME/anaconda3/bin/conda"
 alias info="info --vi-keys"
 alias battery="cat /sys/class/power_supply/BAT1/capacity"
+alias v="nvim"
 
 
 ### FUNCTIONS
@@ -107,6 +108,7 @@ set -Ux EDITOR nvim
 set -U fish_cursor_default block
 set -U fish_cursor_insert block
 set -U PGHOST /tmp
+set -U XDG_CONFIG_HOME $HOME/.config
 
 
 # >>> conda initialize >>>

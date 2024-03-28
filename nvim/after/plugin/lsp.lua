@@ -13,13 +13,11 @@ lsp.set_sign_icons({
   info = "",
 })
 lsp.ensure_installed({
-  -- "pyright",
   "lua_ls",
   "tsserver",
   -- "luaformat", --  TODO find right name
-  -- "ocamllsp",
-  "tailwindcss",
-  "svelte",
+  -- "tailwindcss",
+  -- "svelte",
   "emmet_ls",
 })
 
@@ -28,6 +26,20 @@ lsp.setup()
 require("lspconfig").gopls.setup({
   on_attach = lsp.on_attach,
   capabilities = lsp.get_capabilities(),
+})
+
+require("lspconfig").pylsp.setup({
+  on_attach = lsp.on_attach,
+  capabilities = lsp.get_capabilities(),
+  settings = {
+    pylsp = {
+      plugins = {
+        pyflakes = { enabled = false },
+        pylint = { enabled = false },
+        pycodestyle = { enabled = false },
+      },
+    },
+  },
 })
 
 require("lspconfig").clangd.setup({
@@ -46,17 +58,6 @@ require("lspconfig").clangd.setup({
   ),
 })
 
-require("lspconfig").pyright.setup({
-  on_attach = lsp.on_attach,
-  capabilities = lsp.get_capabilities(),
-})
-
-require("lspconfig").ocamllsp.setup({
-  on_attach = lsp.on_attach,
-  capabilities = lsp.get_capabilities(),
-  single_file_support = true,
-})
-
 require("lspconfig").lua_ls.setup({
   on_attach = lsp.on_attach,
   capabilities = lsp.get_capabilities(),
@@ -69,11 +70,21 @@ require("lspconfig").lua_ls.setup({
   },
 })
 
-require("lspconfig").nim_langserver.setup({
-  on_attach = lsp.on_attach,
-  capabilities = lsp.get_capabilities(),
+require("lspconfig").sqls.setup({
+  on_attach = function(client, bufnr)
+    require("sqls").on_attach(client, bufnr) -- require sqls.nvim
+  end,
+  settings = {
+    sqls = {
+      connections = {
+        {
+          driver = "postgresql",
+          dataSourceName = "host=127.0.0.1 port=54321 user=admin password=admin dbname=admin sslmode=disable",
+        },
+      },
+    },
+  },
 })
-
 vim.g.rustaceanvim = {
   server = {
     capabilities = lsp.get_capabilities(),

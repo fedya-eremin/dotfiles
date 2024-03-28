@@ -2,7 +2,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local autopairs = require("nvim-autopairs.completion.cmp")
 
-
+cmp.event:on("confirm_done", autopairs.on_confirm_done())
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -13,6 +13,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
+    { name = "path" },
     { name = "orgmode" },
 
     option = {
@@ -25,16 +26,15 @@ cmp.setup({
       end,
     },
   },
-  mapping = cmp.mapping.preset.insert({
+  mapping = {
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select_opts),
-    ["<Tab>"] = cmp.mapping.select_next_item(cmp_select_opts),
-    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-  }),
+    ["<M-k>"] = cmp.mapping.select_prev_item(),
+    ["<M-j>"] = cmp.mapping.select_next_item(),
+    ["<M-u>"] = cmp.mapping.scroll_docs(-4),
+    ["<M-d>"] = cmp.mapping.scroll_docs(4),
+  },
 })
 
-cmp.event:on("confirm_done", autopairs.on_confirm_done())
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({

@@ -1,6 +1,5 @@
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "JetBrains Mono", monospace;
+  font-family: "JetBrains Mono", FontAwesome;
   font-size: 14.5px;
   margin: 0;
   padding: 0;
@@ -9,8 +8,6 @@
 window#waybar {
   background-color: rgba(43, 48, 59, 0.5);
   background-image: linear-gradient(90deg, #333333);
-  /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-  /*color: #ffffff;*/
   background-color: transparent;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -65,11 +62,6 @@ button:hover {
   background-color: #eb4d4b;
 }
 
-#mode {
-  background-color: #64727d;
-  border-bottom: 3px solid #ffffff;
-}
-
 #clock,
 #battery,
 #cpu,
@@ -95,29 +87,9 @@ button:hover {
   font-weight: bold;
 }
 
-#window,
-#workspaces {
-  border-radius: 2px;
-  font-weight: bold;
-  margin: 0;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
 #clock {
-  font-weight: bold;
   border-left: none;
-  border-radius: 0 0 10px 10px;
 }
-
 
 @keyframes blink {
   to {
@@ -140,38 +112,19 @@ label:focus {
   background-color: #000000;
 }
 
-
 #network.disconnected {
   background-color: #a45c7c;
 }
 
 #pulseaudio {
-  font-family: "JetBrains Mono", FontAwesome;
   font-weight: 600;
   border-left: none;
   padding-right: 10px;
 }
 
 #pulseaudio.muted {
-  font-family: "JetBrains Mono", FontAwesome;
-
   background-color: #222222;
   color: #999999;
-}
-
-#wireplumber {
-  background-color: #fff0f5;
-  color: #000000;
-}
-
-#wireplumber.muted {
-  background-color: #f53c3c;
-}
-
-#custom-media {
-  background-color: #66cc99;
-  color: #2a5c45;
-  min-width: 100px;
 }
 
 #tray {
@@ -188,18 +141,14 @@ label:focus {
 }
 
 #language {
-  /* background: #967F5C;*/
-  font-weight: bold;
   padding: 5px;
   margin: 0;
   min-width: 22px;
 }
 
 #keyboard-state {
-  background: #97e1ad;
-  color: #000000;
-  padding: 0 0px;
-  margin: 0;
+  background: transparent;
+  padding: 0;
   min-width: 16px;
 }
 
@@ -208,7 +157,9 @@ label:focus {
 }
 
 #keyboard-state > label.locked {
-  background: rgba(0, 0, 0, 0.2);
+  color: #e0c69f;
+  border-right: 1.5px solid #e0c69f;
+  padding: 0 10px 0 0;
 }
 
 #scratchpad.empty {

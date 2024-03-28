@@ -6,15 +6,15 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu killall rofi || rofi -modes "drun,ssh,emoji" -show drun -show-icons
+set $menu killall rofi || rofi -modes "drun,ssh" -show drun -show-icons
 set $swww swaybg -i dotfiles/wallpapers/kanagawa_light.jpg -m fill
 set $nwg killall nwg-bar || nwg-bar
 
 
 #                       Рамка   Фон   Индикатор Родительская_рамка
-client.focused			#7b9282 #7b9282 #7b9282 #7b9282
-client.focused_inactive	#333333 #333333 #333333 #333333
-client.unfocused	    #333333 #333333 #333333 #333333
+client.focused			#7b9282 #7b9282 #f9f9f9 #7b9282
+client.focused_inactive	#7b9282 #7b9282 #f9f9f9 #333333
+client.unfocused	    #333333 #333333 #999999 #333333
 client.urgent			#333333 #333333 #333333 #333333
 client.placeholder		#333333 #333333 #333333 #333333
 
@@ -28,7 +28,7 @@ exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec blueman-applet &
 exec dunst &
-exec alacritty -e ~/dotfiles/scripts/tmux_startup.fish &
+exec alacritty -e tmux &
 exec chromium
 exec telegram-desktop
 exec swaybg -i dotfiles/wallpapers/kanagawa_light.jpg -m fill
@@ -48,7 +48,7 @@ for_window [app_id="pavucontrol"] sticky enable
 
 input * {
     xkb_layout us,ru
-    xkb_options grp:alt_shift_toggle,grp:win_space_toggle
+    xkb_options grp:win_space_toggle
     tap_button_map lrm
     tap enabled
     drag_lock enabled
@@ -169,10 +169,13 @@ bindsym --to-code {
     XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
     $mod+period exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
     $mod+comma exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
-    $mod+semicolon exec $viber
     $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy -t image/png
     $mod+Shift+d exec grim - | wl-copy -t image/png
     Print exec grim ~/Pictures/screenshots/"screen_$(date +%s)".png
+    $mod+slash exec swaymsg input type:touchpad dwt enabled
+    $mod+question exec swaymsg input type:touchpad dwt disabled
+
+
 }
 bindgesture swipe:3:up exec grim -g "$(slurp)" - | wl-copy
 bindgesture swipe:3:down exec killall slurp
