@@ -11,12 +11,12 @@ return {
     branch = "v2.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },             -- Required
-      { "williamboman/mason.nvim" },           -- Optional
+      { "neovim/nvim-lspconfig" },          -- Required
+      { "williamboman/mason.nvim" },        -- Optional
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/nvim-cmp" },  -- Required
       { "hrsh7th/cmp-path" },
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
       {
@@ -88,10 +88,6 @@ return {
     config = function()
       require("hlargs").setup()
     end,
-  },
-  {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
   },
   {
     "nvimdev/guard.nvim",

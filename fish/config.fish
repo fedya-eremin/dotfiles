@@ -102,13 +102,14 @@ end
 
 
 ### ENV
-set -a fish_user_paths $HOME/.local/bin $HOME/.cargo/bin/ $HOME/.nimble/bin
+set -a fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $HOME/go/bin
 set HOME /home/lemonade
 set -Ux EDITOR nvim
 set -U fish_cursor_default block
 set -U fish_cursor_insert block
 set -U PGHOST /tmp
 set -U XDG_CONFIG_HOME $HOME/.config
+set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk-17.0.9.0.9-3.fc39.x86_64/
 
 
 # >>> conda initialize >>>
