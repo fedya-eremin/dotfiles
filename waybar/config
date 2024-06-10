@@ -1,15 +1,15 @@
 {
     "layer": "bottom", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
+    "height": 28, // Waybar height (to be removed for auto height)
     // "width": 1282, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["hyprland/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["keyboard-state", "pulseaudio","sway/scratchpad", "tray", "network","backlight", "memory", "sway/language", "battery", "battery#bat2"],
+    "modules-right": ["keyboard-state", "pulseaudio","sway/scratchpad", "tray", "network","backlight", "memory", "hyprland/language", "battery", "battery#bat2"],
     
-     "sway/workspaces": {
+     "hyprland/workspaces": {
          "disable-scroll": false,
          "all-outputs": true,
          "on-click": "activate",
@@ -24,7 +24,7 @@
              "default": "ω"
          }
      },
-    "sway/language": {
+    "hyprland/language": {
         "format": "{}",
         "format-en": "us",
         "format-ru": "ru",
@@ -81,7 +81,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon} ",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -98,7 +98,6 @@
 				"format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         //"format-alt": "{ifname}: {ipaddr}/{cidr} ({signalStrength}%)",
-        "on-click": "killall connman-gtk || connman-gtk"
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float

@@ -3,11 +3,13 @@ set fish_greeting
 if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
     carapace _carapace | source
+    direnv hook fish | source
 end
 
 if status is-login
 and not set -q TMUX
-    env XDG_CURRENT_DESKTOP=sway dbus-run-session sway
+    # env XDG_CURRENT_DESKTOP=sway dbus-run-session sway
+    Hyprland
 end
 
 # Silly tmux outlives sway
@@ -109,7 +111,11 @@ set -U fish_cursor_default block
 set -U fish_cursor_insert block
 set -U PGHOST /tmp
 set -U XDG_CONFIG_HOME $HOME/.config
-set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk-17.0.9.0.9-3.fc39.x86_64/
+set LANG en_US.UTF-8
+set LC_ALL en_US.UTF-8
+# set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk-17.0.9.0.9-3.fc39.x86_64/
+# set -Ux QT_QPA_PLATFORMTHEME gtk3
+# set -Ux QT_STYLE_OVERRIDE gtk2
 
 
 # >>> conda initialize >>>
@@ -123,3 +129,10 @@ end
 
 # opam configuration
 source /home/lemonade/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+# pnpm
+set -gx PNPM_HOME "/home/lemonade/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

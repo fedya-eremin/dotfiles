@@ -1,10 +1,14 @@
 local ft = require("guard.filetype")
-local lint = require('guard.lint')
+local lint = require("guard.lint")
 
 -- Assuming you have guard-collection
 ft("typescript,javascript,typescriptreact,javascriptreact,svelte,json"):fmt("prettier")
 
-ft("python"):fmt("autopep8"):lint("flake8")
+ft("python"):fmt({
+  cmd = "black",
+  args = { "--quiet", "--line-length", "79", "-" },
+  stdin = true,
+}):lint("flake8")
 -- :lint("mypy")
 
 ft("c"):fmt("clang-format"):lint("clang-tidy")
@@ -32,23 +36,23 @@ ft("go"):fmt("gofmt"):lint({
 })
 
 ft("sql"):lint({
-  cmd = 'sqlfluff',
-  args = { 'lint', '-', '-f', 'github-annotation', '--dialect', 'postgres' },
+  cmd = "sqlfluff",
+  args = { "lint", "-", "-f", "github-annotation", "--dialect", "postgres" },
   stdin = true,
   parse = lint.from_json({
     attributes = {
-      row = 'line',
-      col = 'start_column',
-      end_col = 'end_column',
-      severity = 'annotation_level',
-      message = 'message',
+      row = "line",
+      col = "start_column",
+      end_col = "end_column",
+      severity = "annotation_level",
+      message = "message",
     },
     severities = {
       notice = lint.severities.info,
       warning = lint.severities.warning,
       error = lint.severities.error,
     },
-    source = 'sqlfluff',
+    source = "sqlfluff",
   }),
 })
 
