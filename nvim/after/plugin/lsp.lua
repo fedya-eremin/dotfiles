@@ -27,6 +27,23 @@ require("lspconfig").gopls.setup({
 	capabilities = lsp.get_capabilities(),
 })
 
+require("lspconfig").html.setup({
+	filetypes = { "html", "htmldjango" },
+})
+
+require("lspconfig").pylsp.setup({
+	on_attach = lsp.on_attach,
+	capabilities = lsp.get_capabilities(),
+	settings = {
+		pylsp = {
+			plugins = {
+				pyflakes = { enabled = false },
+				pylint = { enabled = false },
+				pycodestyle = { enabled = false },
+			},
+		},
+	},
+})
 -- require("lspconfig").basedpyright.setup({
 --   on_attach = lsp.on_attach,
 --   capabilities = lsp.get_capabilities(),

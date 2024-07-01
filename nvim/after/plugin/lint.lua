@@ -1,67 +1,26 @@
-local ft = require("guard.filetype")
-local lint = require("guard.lint")
+local slow_format_filetypes = {}
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		-- Conform will run multiple formatters sequentially
+		python = { "isort", "black" },
+		-- Use a sub-list to run only the first available formatter
+		javascript = { { "prettierd", "prettier" } },
 
--- Assuming you have guard-collection
-ft("typescript,javascript,typescriptreact,javascriptreact,svelte,json"):fmt("prettier")
-
-ft("python"):fmt({
-  cmd = "black",
-  args = { "--quiet", "--line-length", "79", "-" },
-  stdin = true,
-}):lint("flake8")
--- :lint("mypy")
-
-ft("c"):fmt("clang-format"):lint("clang-tidy")
-
-ft("lua"):fmt("lsp"):append("stylua")
-ft("ocaml"):fmt({
-  cmd = "ocamlformat",
-  args = {
-    "--break-cases=toplevel",
-    "--if-then-else=fit-or-vertical",
-    "--enable-outside-detected-project",
-    "-",
-    "--name",
-  },
-  stdin = true,
-  fname = true,
-  ignore_error = true,
-})
-ft("go"):fmt("gofmt"):lint({
-  cmd = "golangci-lint",
-  args = { "run" },
-  stdin = false,
-  fname = false,
-  ignore_error = true,
+		html = { "djlint" },
+	},
+	format_after_save = {
+		lsp_fallback = true,
+	},
 })
 
-ft("sql"):lint({
-  cmd = "sqlfluff",
-  args = { "lint", "-", "-f", "github-annotation", "--dialect", "postgres" },
-  stdin = true,
-  parse = lint.from_json({
-    attributes = {
-      row = "line",
-      col = "start_column",
-      end_col = "end_column",
-      severity = "annotation_level",
-      message = "message",
-    },
-    severities = {
-      notice = lint.severities.info,
-      warning = lint.severities.warning,
-      error = lint.severities.error,
-    },
-    source = "sqlfluff",
-  }),
-})
+require("conform").formatters.djlint = {
+	prepend_args = { "--indent", "2" },
+}
 
-ft("rust"):fmt("rustfmt")
-
--- Call setup() LAST!
-require("guard").setup({
-  -- the only options for the setup function
-  fmt_on_save = true,
-  -- Use lsp if no formatter was defined for this filetype
-  lsp_as_default_formatter = false,
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ async = true, quiet = true, bufnr = args.buf })
+	end,
 })
