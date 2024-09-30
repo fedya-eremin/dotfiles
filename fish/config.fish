@@ -4,6 +4,7 @@ if status is-interactive
 	pokemon-colorscripts -n charmander --no-title
     carapace _carapace | source
     direnv hook fish | source
+    pyenv init - | source
 end
 
 if status is-login
@@ -104,7 +105,7 @@ end
 
 
 ### ENV
-set -a fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $HOME/go/bin
+set -a fish_user_paths $HOME/.local/bin $HOME/go/bin
 set HOME /home/lemonade
 set -Ux EDITOR nvim
 set -U fish_cursor_default block
@@ -113,6 +114,8 @@ set -U PGHOST /tmp
 set -U XDG_CONFIG_HOME $HOME/.config
 set LANG en_US.UTF-8
 set LC_ALL en_US.UTF-8
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 # set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk-17.0.9.0.9-3.fc39.x86_64/
 # set -Ux QT_QPA_PLATFORMTHEME gtk3
 # set -Ux QT_STYLE_OVERRIDE gtk2
@@ -136,3 +139,7 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
