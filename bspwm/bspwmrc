@@ -20,19 +20,20 @@ bspc config borderless_monocle   false
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
 
-bspc rule -a waterfox desktop='^2' follow=false 
+bspc rule -a Firefox desktop='^2' follow=false 
 bspc rule -a telegram-desktop desktop='^3' follow=false
 bspc rule -a TelegramDesktop desktop='^3' follow=false
 bspc rule -a "draw.io" desktop='^4' follow=false
 bspc rule -a "feh" state=floating
 bspc rule -a *:*:gsimplecal state=floating rectangle=314x220+803+811
-bspc rule -a Pavucontrol state=floating rectangle=650x400+1064+638
+bspc rule -a pavucontrol state=floating rectangle=650x400+1064+638
 bspc rule -a htop state=floating rectangle=850x600+1064+438
 bspc rule -a Thunar state=floating rectangle=800x600+0+0 center=true
 
 # ~/dotfiles/scripts/startup.fish
 xsetroot -cursor_name left_ptr &
-xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Tapping Enabled" 1
-xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "DELL0A77:00 06CB:CE26 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "DELL0A77:00 06CB:CE26 Touchpad" "libinput Natural Scrolling Enabled" 1
 setxkbmap -option grp:alt_shift_toggle,grp:win_space_toggle us,ru    
 libinput-gestures-setup restart
+feh --bg-fill ~/dotfiles/wallpapers/kanagawa_light.jpg

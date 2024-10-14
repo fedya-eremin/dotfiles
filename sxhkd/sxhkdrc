@@ -1,10 +1,10 @@
 # wm independent hotkeys
 #
 XF86MonBrightnessUp
-    light -As sysfs/backlight/amdgpu_bl1 1.5
+    brightnessctl set 5+
 
 XF86MonBrightnessDown
-    light -Us sysfs/backlight/amdgpu_bl1 1.5
+    brightnessctl set 5-
 
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -26,7 +26,7 @@ super + comma
 
 #dwt
 super + {slash, question}
-    xinput set-prop "GXTP7863:00 27C6:01E0 Touchpad" "libinput Disable While Typing Enabled" {0,1}
+    xinput set-prop "DELL0A77:00 06CB:CE26" "libinput Disable While Typing Enabled" {0,1}
 
 #screenshot to clipboard
 super + shift + {s,d} 
