@@ -40,6 +40,9 @@ super + apostrophe
 super + grave
     polybar -r
 
+super + n
+    iwmenu -m rofi
+
 
 # terminal emulator
 super + q

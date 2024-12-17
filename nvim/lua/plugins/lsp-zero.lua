@@ -47,9 +47,21 @@ return {
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
 			})
+			require("lspconfig").zls.setup({
+				on_attach = lsp.on_attach,
+				capabilities = lsp.get_capabilities(),
+			})
 			require("lspconfig").ts_ls.setup({
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
+				root_dir = require("lspconfig").util.root_pattern("package.json"),
+				single_file_support = false,
+			})
+			require("lspconfig").tailwindcss.setup({
+				on_attach = lsp.on_attach,
+				capabilities = lsp.get_capabilities(),
+				root_dir = require("lspconfig").util.root_pattern("tailwind.config.js"),
+				single_file_support = false,
 			})
 
 			require("lspconfig").html.setup({
@@ -76,6 +88,14 @@ return {
 					"configure.ac",
 					".git"
 				),
+			})
+			require("lspconfig").rust_analyzer.setup({
+				on_attach = lsp.on_attach,
+				capabilities = lsp.get_capabilities(),
+			})
+			require("lspconfig").gopls.setup({
+				on_attach = lsp.on_attach,
+				capabilities = lsp.get_capabilities(),
 			})
 
 			require("lspconfig").lua_ls.setup({

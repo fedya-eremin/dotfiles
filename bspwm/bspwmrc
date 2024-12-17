@@ -1,8 +1,6 @@
 #! /bin/bash
 
 
-
-
 bspc monitor -d α β γ δ ε
 
 
@@ -20,6 +18,7 @@ bspc config borderless_monocle   false
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
 
+bspc rule -a firefox desktop='^2' follow=false 
 bspc rule -a Firefox desktop='^2' follow=false 
 bspc rule -a telegram-desktop desktop='^3' follow=false
 bspc rule -a TelegramDesktop desktop='^3' follow=false
@@ -34,6 +33,7 @@ bspc rule -a Thunar state=floating rectangle=800x600+0+0 center=true
 xsetroot -cursor_name left_ptr &
 xinput set-prop "DELL0A77:00 06CB:CE26 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "DELL0A77:00 06CB:CE26 Touchpad" "libinput Natural Scrolling Enabled" 1
-setxkbmap -option grp:alt_shift_toggle,grp:win_space_toggle us,ru    
+setxkbmap -option grp:win_space_toggle us,ru    
+setxkbmap -option ctrl:swapcaps
 libinput-gestures-setup restart
 feh --bg-fill ~/dotfiles/wallpapers/kanagawa_light.jpg

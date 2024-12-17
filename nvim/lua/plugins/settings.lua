@@ -44,6 +44,6 @@ return {
 			border = "single",
 			width = 120,
 		})
-		vim.opt.clipboard = "unnamedplus"
+		-- vim.opt.clipboard = "unnamedplus"
 	end,
 }

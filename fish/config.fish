@@ -1,17 +1,17 @@
 ### INIT OPTIONS
 set fish_greeting
 if status is-interactive
-	pokemon-colorscripts -n charmander --no-title
+	pokemon-colorscripts-go -n charmander --no-title
     # carapace setup (override builtin completions)
     carapace _carapace | source
     direnv hook fish | source
     pyenv init - | source
-    nvm use lts >> /dev/null
+    nvm use latest >> /dev/null
 end
 
 if status is-login
 and not set -q TMUX
-    startx
+    dbus-run-session startx
 end
 
 # Silly tmux outlives sway
@@ -28,31 +28,27 @@ end
 bind \cz ''
 bind -s \ek 'my_clear'
 bind \el 'my_ls'
+bind \ev 'nvim'
 bind \cf 'nvim-fzf'
 bind \ed 'pushd ..; commandline -f repaint'
 bind \ef 'popd; commandline -f repaint'
 
 
 ### ALIASES
-alias gnome-polkit="/usr/libexec/polkit-gnome-authentication-agent-1"
+alias gnome-polkit="/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 alias lsa="g -l -a --icons"
 alias ll="g -l --icons"
 alias cls="clear ; pokemon-colorscripts -r --no-title"
-alias listn="nmcli device wifi list --rescan yes"
-alias connect="nmcli device wifi connect "
 alias activate="source ./venv/bin/activate.fish"
 alias rmr="rm -r"
 alias rmrf="rm -rf"
 alias rmf="rm -f"
 alias dog="cat"
-alias vi="nvim"
-alias cicd="flake8 . && pytest"
 alias sudoe="sudoedit"
 alias feh="feh --scale-down --geometry 1000x800"
 alias info="info --vi-keys"
 alias battery="cat /sys/class/power_supply/BAT1/capacity"
 alias v="nvim"
-alias xi="sudo xbps-install"
 
 
 ### FUNCTIONS
@@ -88,10 +84,6 @@ function my_ls
     commandline -f repaint
 end
 
-function pserver
-    su - postgres -c "pg_ctl -D /var/lib/postgres/data $argv"
-end
-
 function nvim-fzf
     set filename $(fzf-tmux)
     if test $status -eq 0
@@ -117,25 +109,16 @@ set LANG en_US.UTF-8
 set LC_ALL en_US.UTF-8
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-# set -U JAVA_HOME /usr/lib/jvm/java-17-openjdk-17.0.9.0.9-3.fc39.x86_64/
 # set -Ux QT_QPA_PLATFORMTHEME gtk3
 # set -Ux QT_STYLE_OVERRIDE gtk2
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-function condaenv
-    if test -f /opt/anaconda/bin/conda
-        eval /opt/anaconda/bin/conda "shell.fish" "hook" $argv | source
-    end
-end
-# <<< conda initialize <<<
 
 # opam configuration
 source /home/lemonade/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # cargo
-source "$HOME/.cargo/env.fish"
+source "$HOME/.cargo/env.fish" >> /dev/null
 
 # pnpm
 set -gx PNPM_HOME "/home/lemonade/.local/share/pnpm"
@@ -148,4 +131,8 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+set -gx NVM_DIR "$HOME/.nvm"
+test -s "$NVM_DIR/nvm.fish" && source "$NVM_DIR/nvm.fish" 
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/lemonade/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/home/lemonade/Downloads/google-cloud-sdk/path.fish.inc'; end

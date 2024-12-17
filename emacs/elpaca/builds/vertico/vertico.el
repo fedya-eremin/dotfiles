@@ -1,0 +1,1 @@
+/home/lemonade/.config/emacs/elpaca/repos/vertico/vertico.el
