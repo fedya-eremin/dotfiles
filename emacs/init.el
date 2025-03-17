@@ -144,12 +144,8 @@
 (unless (server-running-p)
   (server-start))
 
-(use-package god-mode
-  :ensure t
-  :config
-  (global-set-key (kbd "<escape>") #'god-mode-all)
-  :init
-  (god-mode))
+(use-package evil :ensure t :demand t)
+
 
 (use-package vertico
   :ensure t
@@ -163,7 +159,7 @@
                 ("M-j" . corfu-next)
                 ("M-k" . corfu-previous))
     :custom
-    (corfu-preselect 'prompt)
+    (Corfu-preselect 'prompt)
     (corfu-auto t)
     (corfu-popupinfo-delay 0.5)
     (corfu-auto-delay 0.1)

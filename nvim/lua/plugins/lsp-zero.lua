@@ -15,6 +15,7 @@ return {
 		},
 		config = function()
 			local lsp = require("lsp-zero")
+			-- vim.api.nvim_set_hl(0, "LspInlayHint", { bg = "NONE", fg = "#685880" })
 
 			local lsp_attach = function(client, bufnr)
 				local opts = { buffer = bufnr }
@@ -27,7 +28,7 @@ return {
 				vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 				vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 				vim.keymap.set("n", "rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-				vim.keymap.set("n", "ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+				vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 			end
 			lsp.extend_lspconfig({
 				sign_text = true,
@@ -52,15 +53,27 @@ return {
 				capabilities = lsp.get_capabilities(),
 			})
 			require("lspconfig").ts_ls.setup({
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = "/usr/lib/node_modules/@vue/typescript-plugin",
+							languages = { "vue", "javascript", "typescript" },
+						},
+					},
+				},
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
 				root_dir = require("lspconfig").util.root_pattern("package.json"),
 				single_file_support = false,
 			})
+			require("lspconfig").volar.setup({})
+			require("lspconfig").prismals.setup({})
 			require("lspconfig").tailwindcss.setup({
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
-				root_dir = require("lspconfig").util.root_pattern("tailwind.config.js"),
+				root_dir = require("lspconfig").util.root_pattern("tailwind.config.js", "tailwind.config.ts"),
 				single_file_support = false,
 			})
 
@@ -97,6 +110,8 @@ return {
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
 			})
+			require("lspconfig").dockerls.setup({})
+			require("lspconfig").docker_compose_language_service.setup({})
 
 			require("lspconfig").lua_ls.setup({
 				on_attach = lsp.on_attach,

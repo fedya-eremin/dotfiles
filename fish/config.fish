@@ -9,15 +9,10 @@ if status is-interactive
     nvm use latest >> /dev/null
 end
 
-if status is-login
-and not set -q TMUX
-    dbus-run-session startx
+# tmux outlives sway
+if set -q TMUX
+    set -g SWAYSOCK /run/user/1000/sway-ipc.1000.$(pidof sway).sock
 end
-
-# Silly tmux outlives sway
-# if set -q TMUX
-#     set -g SWAYSOCK /run/user/1000/sway-ipc.1000.$(pidof sway).sock
-# end
 
 # NOTE: to get rid of poetry completion error, run:
 # poetry completions fish > ..../fish/vendor_completions.d/poetry.fish
@@ -35,7 +30,6 @@ bind \ef 'popd; commandline -f repaint'
 
 
 ### ALIASES
-alias gnome-polkit="/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 alias lsa="g -l -a --icons"
 alias ll="g -l --icons"
 alias cls="clear ; pokemon-colorscripts -r --no-title"
@@ -49,6 +43,7 @@ alias feh="feh --scale-down --geometry 1000x800"
 alias info="info --vi-keys"
 alias battery="cat /sys/class/power_supply/BAT1/capacity"
 alias v="nvim"
+alias pn="pnpm"
 
 
 ### FUNCTIONS

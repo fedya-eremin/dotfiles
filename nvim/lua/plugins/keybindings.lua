@@ -4,7 +4,6 @@ return {
 	config = function()
 		local bind = vim.keymap.set
 
-		bind("n", "<A-t>", vim.cmd.TroubleToggle)
 		bind("n", "<leader>cd", function()
 			vim.cmd.cd({ "%:p:h" })
 			vim.cmd.pwd()
@@ -45,7 +44,7 @@ return {
 		end
 
 		bind("n", "<leader>d", toggle_diagnostics)
-		bind("n", "<leader>aq", '<cmd>caddexpr expand("%") .. ":" .. line(".") .. ":" .. getline(".")<CR>')
+		-- bind("n", "<leader>aq", '<cmd>caddexpr expand("%") .. ":" .. line(".") .. ":" .. getline(".")<CR>')
 
 		bind("n", "<A-n>", "<cmd>set hlsearch!<cr>")
 
