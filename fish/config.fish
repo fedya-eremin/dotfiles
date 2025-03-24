@@ -43,6 +43,7 @@ alias feh="feh --scale-down --geometry 1000x800"
 alias info="info --vi-keys"
 alias battery="cat /sys/class/power_supply/BAT1/capacity"
 alias v="nvim"
+alias pv="poetry run nvim"
 alias pn="pnpm"
 
 

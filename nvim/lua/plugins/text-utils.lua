@@ -43,7 +43,6 @@ return {
 			require("aerial").setup()
 		end,
 	},
-	{ "gennaro-tedesco/nvim-peekup" },
 	{
 		"lervag/vimtex",
 		lazy = false, -- we don't want to lazy load VimTeX

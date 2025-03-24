@@ -1,1 +1,0 @@
-/home/lemonade/.config/emacs/elpaca/repos/god-mode/god-mode.el

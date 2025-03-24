@@ -1,1 +1,0 @@
-/home/lemonade/.config/emacs/elpaca/repos/vertico/extensions/vertico-reverse.el
