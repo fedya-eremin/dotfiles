@@ -9,8 +9,9 @@ nvim/lazy-lock.json
 
 *auto-save-list/
 *elpa/
-*eln-cache/
+*eln-cache/**
 *quelpa/
 *tree-sitter/
 *etc/
+*
 *var/
