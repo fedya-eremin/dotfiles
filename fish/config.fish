@@ -9,11 +9,6 @@ if status is-interactive
     nvm use latest >> /dev/null
 end
 
-# tmux outlives sway
-if set -q TMUX
-    set -g SWAYSOCK /run/user/1000/sway-ipc.1000.$(pidof sway).sock
-end
-
 # NOTE: to get rid of poetry completion error, run:
 # poetry completions fish > ..../fish/vendor_completions.d/poetry.fish
 # because it seems to be kinda fucked up by default

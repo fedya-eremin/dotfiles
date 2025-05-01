@@ -24,19 +24,19 @@ foreground = "#e0c69f"
 
 [font]
 builtin_box_drawing = true
-size = 8.0
+size = 14.0
 
 [font.bold]
-family = "JetBrainsMono NF Medium"
-style = "Bold"
+family = "JetBrainsMono NF SemiBold"
+style = "SemiBold"
 
 [font.bold_italic]
-family = "JetBrainsMono NF Medium"
-style = "Bold Italic"
+family = "JetBrainsMono NF SemiBold"
+style = "SemiBold Italic"
 
 [font.italic]
 family = "JetBrainsMono NF Medium"
-style = "Italic"
+style = "Medium Italic"
 
 [font.normal]
 family = "JetBrainsMono NF Medium"

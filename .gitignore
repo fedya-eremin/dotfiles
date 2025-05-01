@@ -6,3 +6,11 @@ nvim/plugin
 tmux/plugins
 nvim/lazy-lock.json
 *luarc.json
+
+*auto-save-list/
+*elpa/
+*eln-cache/
+*quelpa/
+*tree-sitter/
+*etc/
+*var/

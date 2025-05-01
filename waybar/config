@@ -2,14 +2,12 @@
     "layer": "bottom", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 28, // Waybar height (to be removed for auto height)
-    // "width": 1282, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["keyboard-state", "pulseaudio","sway/scratchpad", "tray", "network","backlight", "memory", "sway/language", "battery", "battery#bat2"],
+    "modules-right": ["keyboard-state", "pulseaudio", "tray", "network","backlight", "memory", "hyprland/language", "battery", "battery#bat2"],
     
-     "sway/workspaces": {
+     "hyprland/workspaces": {
          "disable-scroll": false,
          "all-outputs": true,
          "on-click": "activate",
@@ -37,19 +35,6 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-
-    
-
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -104,14 +89,14 @@
         "scroll-step": 1, // %, can be a float
         "format": "{volume}% 󰕾 {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-bluetooth-muted": "󰋐  {format_source}",
         "format-muted": "󰓄 {format_source}",
         "format-source": "{volume}% 󰍬",
         "format-source-muted": "󰍭",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
             "phone": "",
             "portable": "",
             "car": "",

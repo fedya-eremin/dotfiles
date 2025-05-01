@@ -9,7 +9,6 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
@@ -19,7 +18,6 @@ return {
 
 			local lsp_attach = function(client, bufnr)
 				local opts = { buffer = bufnr }
-
 				vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 				vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 				vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
@@ -32,7 +30,7 @@ return {
 			lsp.extend_lspconfig({
 				sign_text = true,
 				lsp_attach = lsp_attach,
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
 			})
 			lsp.set_sign_icons({
 				error = "󰚌",

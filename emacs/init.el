@@ -1,32 +1,43 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
-(setq custom-file "~/dotfiles/emacs/custom.el")
-(setq create-lockfiles nil)
-(setq make-backup-files nil)
+(setq scroll-conservatively 101)
+(setq scroll-margin 10)
 (setq backup-directory-alist '(("." . "/tmp")))
-(setq package-archives '(("MELPA" . "https://melpa.org/packages/")))
+(setq create-lockfiles nil)
+(add-to-list 'package-archives '("MELPA" . "https://melpa.org/packages/"))
 (electric-pair-mode 1)
+(fido-mode 1)
+(set-frame-font "JetBrains Mono Medium 14" nil t)
+(keymap-global-set "C-," 'duplicate-line)
 
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
-(set-face-attribute 'default nil :height 140)
+(use-package no-littering
+  :config
+  (no-littering-theme-backups))
 
+(use-package pdf-tools)
 
 (use-package zenburn-theme
-  :ensure t
   :config
   (load-theme 'zenburn t))
 
-(use-package ido-completing-read+
-  :ensure t
+(use-package eat)
+
+(use-package treesit-auto
   :config
-  (ido-mode 1)
-  (ido-everywhere 1)
-  (ido-ubiquitous-mode 1))
+  (global-treesit-auto-mode))
+
+(use-package ace-window
+  :bind
+  (("M-o" . ace-window)))
 
 (use-package eglot
-  :ensure t
   :bind (("C-c s e e" . eglot)
 	 ("C-c s e d" . eldoc)
 	 ("C-c s e r" . eglot-rename)
@@ -39,7 +50,6 @@
 
 
 (use-package corfu
-  :ensure t
   :hook (emacs-startup . global-corfu-mode)
   :bind (:map corfu-map
               ("<tab>" . corfu-next)
@@ -60,21 +70,28 @@
   (global-corfu-mode)
   (corfu-popupinfo-mode))
 
-(use-package poetry
-  :ensure t)
+(use-package poetry)
 
 (use-package eldoc-box
-  :ensure t
   :bind
   (("C-c K" . eldoc-box-hover-mode))
   :config
   (setq eldoc-box-max-pixel-width 500)
   (setq eldoc-box-max-pixel-height 700))
 
-(use-package markdown-mode
-  :ensure t)
+(use-package markdown-mode)
 
-(use-package magit
-  :ensure t)
+(use-package magit)
 
+(use-package expand-region
+  :bind
+  (("C-*" . er/expand-region)))
+
+(use-package multiple-cursors
+  :bind
+  (("C-S-c C-S-c" . mc/edit-lines)
+   ("C-c C->" . mc/mark-next-like-this)
+   ("C-c C-<" . mc/mark-previous-like-this)))
+(put 'narrow-to-region 'disabled nil)
+(setq custom-file "~/dotfiles/emacs/custom.el")
 (load-file custom-file)
