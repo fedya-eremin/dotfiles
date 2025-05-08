@@ -13,5 +13,9 @@ nvim/lazy-lock.json
 *quelpa/
 *tree-sitter/
 *etc/
-*
 *var/
+
+./clipse/clipboard_history.json
+./clipse/clipse.log
+./clipse/tmp_files
+
