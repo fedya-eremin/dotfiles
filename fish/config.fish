@@ -16,8 +16,8 @@ end
 
 ### BINDS
 bind \cz ''
-bind -s \ek 'my_clear'
-bind \el 'my_ls'
+bind -s \eK 'my_clear'
+bind \eL 'my_ls'
 bind \ev 'nvim'
 bind \cf 'nvim-fzf'
 bind \ed 'pushd ..; commandline -f repaint'
@@ -39,7 +39,6 @@ alias info="info --vi-keys"
 alias battery="cat /sys/class/power_supply/BAT1/capacity"
 alias v="nvim"
 alias pv="poetry run nvim"
-alias pn="pnpm"
 
 
 ### FUNCTIONS
@@ -83,11 +82,6 @@ function nvim-fzf
 end
 
 
-function kinit
-	eval $(keychain --quiet --eval $argv)
-end
-
-
 ### ENV
 set -a fish_user_paths $HOME/.local/bin $HOME/go/bin
 set HOME /home/lemonade
@@ -99,7 +93,8 @@ set -U XDG_CONFIG_HOME $HOME/.config
 set LANG en_US.UTF-8
 set LC_ALL en_US.UTF-8
 set -Ux PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+set -U GOPATH $HOME/go
+set -U fish_user_paths $PYENV_ROOT/bin $GOPATH/bin $fish_user_paths
 # set -Ux QT_QPA_PLATFORMTHEME gtk3
 # set -Ux QT_STYLE_OVERRIDE gtk2
 
@@ -124,6 +119,3 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 set -gx NVM_DIR "$HOME/.nvm"
 test -s "$NVM_DIR/nvm.fish" && source "$NVM_DIR/nvm.fish" 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/lemonade/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/home/lemonade/Downloads/google-cloud-sdk/path.fish.inc'; end

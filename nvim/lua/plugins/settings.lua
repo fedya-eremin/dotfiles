@@ -15,7 +15,7 @@ vim.opt.swapfile = true
 vim.opt.backup = false
 vim.opt.undofile = true
 
-vim.opt.iskeyword:append({ "-" })
+vim.opt.iskeyword:append({ "-", "_" })
 
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
@@ -32,7 +32,6 @@ vim.opt.hlsearch = true
 vim.opt.conceallevel = 0
 vim.opt.list = true
 vim.opt.listchars = "space:·,tab:··,lead:·,nbsp:·,trail:·"
-vim.g.codeium_disable_bindings = 1
 vim.opt.laststatus = 3
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -40,4 +39,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	width = 100,
 })
 vim.opt.clipboard = "unnamedplus"
+
+vim.o.winborder = "single"
 return {}
