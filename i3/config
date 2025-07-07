@@ -1,0 +1,176 @@
+font pango:monospace 8
+
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+# exec --no-startup-id dex --autostart --environment i3
+
+exec --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/kanagawa_light.jpg &
+exec --no-startup-id dunst &
+exec --no-startup-id zen-browser &
+exec --no-startup-id Telegram &
+exec --no-startup-id xfce4-clipman &
+exec --no-startup-id blueman-applet &
+exec --no-startup-id gnome-polkit &
+exec --no-startup-id polybar &
+
+
+default_border pixel 1
+
+# class                 border  backgr. text    indicator child_border
+client.focused			#7b9282 #7b9282 #f9f9f9 #7b9282
+client.focused_inactive	#7b9282 #7b9282 #f9f9f9 #333333
+client.unfocused	    #333333 #333333 #999999 #333333
+client.urgent			#333333 #333333 #333333 #333333
+client.placeholder		#333333 #333333 #333333 #333333
+
+
+for_window [class="(?i)thunar"] floating enable
+for_window [class="(?i)thunar"] resize set 1000 700
+for_window [class="zen"] move workspace 2
+for_window [class="Telegram"] floating enable
+for_window [class="Telegram"] resize set 700 1044
+for_window [class="Telegram"] move position 1220 0
+for_window [class="Telegram"] sticky enable
+for_window [class="pavucontrol"] floating enable
+for_window [class="pavucontrol"] resize set 700 400
+for_window [class="pavucontrol"] move position 1200 648
+for_window [class="pavucontrol"] sticky enable
+
+set $up k
+set $down j
+set $left h
+set $right l
+
+floating_modifier Mod4
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+# start a terminal
+bindsym Mod4+q exec kitty
+bindsym Mod4+e exec thunar
+
+# kill focused window
+bindsym Mod4+c kill
+
+# start dmenu (a program launcher)
+bindsym Mod4+r exec --no-startup-id rofi -show-icons -show drun
+
+# change focus
+bindsym Mod4+$left focus left
+bindsym Mod4+$down focus down
+bindsym Mod4+$up focus up
+bindsym Mod4+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+
+# move focused window
+bindsym Mod4+Shift+$left move left
+bindsym Mod4+Shift+$down move down
+bindsym Mod4+Shift+$up move up
+bindsym Mod4+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+Ctrl+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+o floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+space focus mode_toggle
+
+# focus the parent container
+bindsym Mod4+a focus parent
+
+# focus the child container
+bindsym Mod4+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod4+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod4+minus scratchpad show
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+# switch to workspace
+bindsym Mod4+1 workspace number $ws1
+bindsym Mod4+2 workspace number $ws2
+bindsym Mod4+3 workspace number $ws3
+bindsym Mod4+4 workspace number $ws4
+bindsym Mod4+5 workspace number $ws5
+
+# move focused container to workspace
+bindsym Mod4+Shift+1 move container to workspace number $ws1
+bindsym Mod4+Shift+2 move container to workspace number $ws2
+bindsym Mod4+Shift+3 move container to workspace number $ws3
+bindsym Mod4+Shift+4 move container to workspace number $ws4
+bindsym Mod4+Shift+5 move container to workspace number $ws5
+
+# reload the configuration file
+bindsym Mod4+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym Mod4+t exec --no-startup-id ~/dotfiles/scripts/telegram.sh
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym F9 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5+
+
+
+bindsym Mod4+Shift+s exec xfce4-screenshooter -r -c
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or Mod4+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod4+Tab mode "default"
+}
+
+bindsym Mod4+Tab mode "resize"
+

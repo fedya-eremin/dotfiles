@@ -1,10 +1,10 @@
 return {
-	{
-		"m-demare/hlargs.nvim",
-		config = function()
-			require("hlargs").setup()
-		end,
-	},
+	-- {
+	-- 	"m-demare/hlargs.nvim",
+	-- 	config = function()
+	-- 		require("hlargs").setup()
+	-- 	end,
+	-- },
 	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",

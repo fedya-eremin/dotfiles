@@ -7,7 +7,7 @@ end)
 
 bind("t", "<ESC>", "<C-\\><C-n>")
 bind("n", "<A-e>", function()
-	vim.cmd("Oil --float")
+	vim.cmd("Oil")
 end, { silent = true })
 
 bind("n", "<Up>", function()
@@ -26,7 +26,7 @@ end)
 local function toggle_diagnostics()
 	if vim.g.diagnostics_visible then
 		vim.g.diagnostics_visible = false
-		vim.diagnostic.disable()
+		vim.diagnostic.enable(false)
 	else
 		vim.g.diagnostics_visible = true
 		vim.diagnostic.enable()
@@ -34,7 +34,7 @@ local function toggle_diagnostics()
 end
 
 bind("n", "<leader>d", toggle_diagnostics)
--- bind("n", "<leader>aq", '<cmd>caddexpr expand("%") .. ":" .. line(".") .. ":" .. getline(".")<CR>')
+bind("n", "<leader>aq", '<cmd>caddexpr expand("%") .. ":" .. line(".") .. ":" .. getline(".")<CR>')
 
 bind("n", "<A-n>", "<cmd>set hlsearch!<cr>")
 

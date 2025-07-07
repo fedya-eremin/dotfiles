@@ -70,9 +70,15 @@ return {
 			require("lspconfig").tailwindcss.setup({
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
-				root_dir = require("lspconfig").util.root_pattern("tailwind.config.js", "tailwind.config.ts"),
+				root_dir = require("lspconfig").util.root_pattern(
+					"tailwind.config.js",
+					"tailwind.config.ts",
+					"package.json"
+				),
 				single_file_support = false,
 			})
+			require("lspconfig").cssls.setup({})
+			require("lspconfig").css_variables.setup({})
 
 			require("lspconfig").html.setup({
 				filetypes = { "html", "htmldjango" },
@@ -101,6 +107,10 @@ return {
 				),
 			})
 			require("lspconfig").rust_analyzer.setup({
+				on_attach = lsp.on_attach,
+				capabilities = lsp.get_capabilities(),
+			})
+			require("lspconfig").ocamllsp.setup({
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
 			})

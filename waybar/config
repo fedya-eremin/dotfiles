@@ -3,11 +3,10 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 28, // Waybar height (to be removed for auto height)
     "spacing": 0, // Gaps between modules (4px)
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["keyboard-state", "pulseaudio", "tray", "network","backlight", "memory", "hyprland/language", "battery", "battery#bat2"],
-    
-     "hyprland/workspaces": {
+    "modules-right": ["keyboard-state", "pulseaudio", "tray", "network","backlight", "memory", "sway/language", "battery", "battery#bat2"],
+     "sway/workspaces": {
          "disable-scroll": false,
          "all-outputs": true,
          "on-click": "activate",
@@ -22,7 +21,7 @@
              "default": "ω"
          }
      },
-    "hyprland/language": {
+    "sway/language": {
         "format": "{}",
         "format-en": "us",
         "format-ru": "ru",

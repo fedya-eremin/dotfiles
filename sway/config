@@ -5,10 +5,9 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
+set $term kitty
 set $menu killall rofi || rofi -modes "drun,ssh" -show drun -show-icons
 set $swww swaybg -i dotfiles/wallpapers/kanagawa_light.jpg -m fill
-set $nwg killall nwg-bar || nwg-bar
 
 
 #                       Рамка   Фон   Индикатор Родительская_рамка
@@ -23,16 +22,16 @@ output eDP-1 pos 0 0
 output HDMI-A-1 resolution 1920x1080 position 0 0
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bu
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user start xdg-desktop-portal-wlr
 exec blueman-applet &
 exec dunst &
-exec alacritty -e tmux &
-exec chromium-browser
-exec telegram-desktop
+exec Telegram
 exec zen-browser
 exec swaybg -i dotfiles/wallpapers/kanagawa_light.jpg -m fill
+exec $bar &
 exec autotiling &
 
 
@@ -74,9 +73,9 @@ input type:touchpad {
 gaps inner 6
 gaps outer 3
 
-default_border pixel 3
+smart_borders on
+default_border pixel 2
 focus_follows_mouse yes
-# smart_borders on
 smart_gaps on
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -171,7 +170,7 @@ bindsym --to-code {
     XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    F9 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
     $mod+period exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
     $mod+comma exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
     $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy -t image/png
