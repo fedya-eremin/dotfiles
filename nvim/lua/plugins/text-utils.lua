@@ -23,7 +23,6 @@ return {
 			})
 		end,
 	},
-	{ "windwp/nvim-ts-autotag", ft = { "html", "javascriptreact", "typescriptreact" } },
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,

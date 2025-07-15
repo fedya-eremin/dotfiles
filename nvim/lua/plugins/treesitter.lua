@@ -4,12 +4,7 @@ return {
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			playground = { enable = true },
-			ensure_installed = { "c", "python", "javascript", "html", "lua", "vim", "query", "org" },
 			sync_install = false,
-
-			auto_install = true,
-
-			ignore_install = { "javascript" },
 
 			highlight = {
 				enable = true,
@@ -19,10 +14,6 @@ return {
 			indent = {
 				enable = true,
 				disable = { "javascript", "html", "norg", "ocaml" },
-			},
-			autotag = {
-				enable = true,
-				disable = { "norg" },
 			},
 		})
 	end,

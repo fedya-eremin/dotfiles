@@ -110,10 +110,17 @@ return {
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
 			})
-			require("lspconfig").ocamllsp.setup({
-				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
-			})
+			local configs = require("lspconfig.configs")
+			if not configs.tact then
+				configs.tact = {
+					default_config = {
+						cmd = { "tact-language-server", "--stdio" },
+						filetypes = { "tact" },
+						root_dir = require("lspconfig.util").root_pattern("package.json", ".git"),
+					},
+				}
+			end
+			require("lspconfig").tact.setup({})
 			require("lspconfig").gopls.setup({
 				on_attach = lsp.on_attach,
 				capabilities = lsp.get_capabilities(),
