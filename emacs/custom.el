@@ -6,10 +6,11 @@
  ;; If there is more than one, they won't work right.
  '(display-line-numbers 'visual)
  '(package-selected-packages
-   '(ace-window corfu eat eldoc-box expand-region magit magit-section
-		markdown-mode multiple-cursors no-littering pdf-tools
-		poetry quelpa-use-package simpc-mode treesit-auto
-		with-editor zenburn-theme))
+   '(ace-window apheleia corfu eat eldoc-box expand-region god-mode magit
+		magit-section markdown-mode multiple-cursors
+		no-littering pdf-tools poetry quelpa-use-package
+		simpc-mode treesit-auto with-editor zenburn-theme
+		zoom-window))
  '(poetry-tracking-strategy 'switch-buffer)
  '(quelpa-async-p t)
  '(quelpa-self-upgrade-p nil)

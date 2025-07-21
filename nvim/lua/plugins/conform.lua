@@ -2,10 +2,10 @@ return {
 	"stevearc/conform.nvim",
 	opts = {},
 	config = function()
-		-- local slow_format_filetypes = {}
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
+				go = { "golines", "gofumpt" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
@@ -21,10 +21,15 @@ return {
 			prepend_args = { "--indent", "2" },
 		}
 
-		vim.api.nvim_create_autocmd("BufWritePre", {
+		vim.api.nvim_create_autocmd("BufWritePost", {
 			pattern = "*",
 			callback = function(args)
-				require("conform").format({ async = true, quiet = true, bufnr = args.buf })
+				require("conform").format({
+					async = false,
+					quiet = true,
+					bufnr = args.buf,
+					timeout_ms = 500,
+				})
 			end,
 		})
 	end,

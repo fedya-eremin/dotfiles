@@ -27,6 +27,14 @@ vim.g.netrw_banner = 1
 vim.g.netrw_winsize = 25
 vim.diagnostic.config({
 	virtual_text = false,
+    signs = {
+	 text = {
+		[vim.diagnostic.severity.ERROR] = "󰚌",
+		[vim.diagnostic.severity.WARN] = "󰸰",
+		[vim.diagnostic.severity.HINT] = "󰯞",
+		[vim.diagnostic.severity.INFO] = "",
+	},
+},
 })
 vim.opt.hlsearch = true
 vim.opt.conceallevel = 0
@@ -41,4 +49,4 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.opt.clipboard = "unnamedplus"
 
 vim.o.winborder = "single"
-return {}
+

@@ -1,11 +1,5 @@
 return {
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v4.x",
-		lazy = true,
-		config = false,
-	},
-	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
@@ -13,8 +7,9 @@ return {
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 		config = function()
-			local lsp = require("lsp-zero")
-			-- vim.api.nvim_set_hl(0, "LspInlayHint", { bg = "NONE", fg = "#685880" })
+			local lspconfig = require("lspconfig")
+			local lsp = vim.lsp
+			local blink = require("blink.cmp")
 
 			local lsp_attach = function(client, bufnr)
 				local opts = { buffer = bufnr }
@@ -27,29 +22,18 @@ return {
 				vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 				vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 			end
-			lsp.extend_lspconfig({
-				sign_text = true,
-				lsp_attach = lsp_attach,
-				capabilities = require("blink.cmp").get_lsp_capabilities(),
-			})
-			lsp.set_sign_icons({
-				error = "󰚌",
-				warn = "󰸰",
-				hint = "󰯞",
-				info = "",
-			})
 
-			lsp.setup()
+            lsp.on_attach = lsp_attach
 
-			require("lspconfig").gopls.setup({
+			lspconfig.gopls.setup({
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
+				capabilities = blink.get_lsp_capabilities(),
 			})
-			require("lspconfig").zls.setup({
+			lspconfig.zls.setup({
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
+				capabilities = blink.get_lsp_capabilities(),
 			})
-			require("lspconfig").ts_ls.setup({
+			lspconfig.ts_ls.setup({
 				init_options = {
 					plugins = {
 						{
@@ -61,42 +45,31 @@ return {
 				},
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
-				root_dir = require("lspconfig").util.root_pattern("package.json"),
+				capabilities = blink.get_lsp_capabilities(),
+				root_dir = lspconfig.util.root_pattern("package.json"),
 				single_file_support = false,
 			})
-			require("lspconfig").volar.setup({})
-			require("lspconfig").prismals.setup({})
-			require("lspconfig").tailwindcss.setup({
+			lspconfig.tailwindcss.setup({
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
-				root_dir = require("lspconfig").util.root_pattern(
-					"tailwind.config.js",
-					"tailwind.config.ts",
-					"package.json"
-				),
+				capabilities = blink.get_lsp_capabilities(),
+				root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts", "package.json"),
 				single_file_support = false,
 			})
-			require("lspconfig").cssls.setup({})
-			require("lspconfig").css_variables.setup({})
+			lspconfig.cssls.setup({})
 
-			require("lspconfig").html.setup({
-				filetypes = { "html", "htmldjango" },
-			})
-
-			require("lspconfig").pyright.setup({
+			lspconfig.pyright.setup({
 				on_attach = lsp.on_attach,
 				filetypes = { "python", "pyrex" },
-				capabilities = lsp.get_capabilities(),
+				capabilities = blink.get_lsp_capabilities(),
 				settings = {},
 			})
 
-			require("lspconfig").clangd.setup({
+			lspconfig.clangd.setup({
 				single_file_support = true,
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
+				capabilities = blink.get_lsp_capabilities(),
 				cmd = { "clangd" },
-				root_dir = require("lspconfig").util.root_pattern(
+				root_dir = lspconfig.util.root_pattern(
 					".clangd",
 					".clang-tidy",
 					".clang-format",
@@ -106,9 +79,9 @@ return {
 					".git"
 				),
 			})
-			require("lspconfig").rust_analyzer.setup({
+			lspconfig.rust_analyzer.setup({
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
+				capabilities = blink.get_lsp_capabilities(),
 			})
 			local configs = require("lspconfig.configs")
 			if not configs.tact then
@@ -120,17 +93,19 @@ return {
 					},
 				}
 			end
-			require("lspconfig").tact.setup({})
-			require("lspconfig").gopls.setup({
+			lspconfig.tact.setup({})
+			lspconfig.gopls.setup({
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
+				capabilities = blink.get_lsp_capabilities(),
 			})
-			require("lspconfig").dockerls.setup({})
-			require("lspconfig").docker_compose_language_service.setup({})
+			lspconfig.dockerls.setup({})
+			lspconfig.vacuum.setup({
+				filetypes = { "yaml" },
+			})
 
-			require("lspconfig").lua_ls.setup({
+			lspconfig.lua_ls.setup({
 				on_attach = lsp.on_attach,
-				capabilities = lsp.get_capabilities(),
+				capabilities = blink.get_lsp_capabilities(),
 				settings = {
 					Lua = {
 						diagnostics = {
