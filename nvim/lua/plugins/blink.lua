@@ -14,6 +14,10 @@ return {
 		appearance = {
 			nerd_font_variant = "mono",
 		},
+		cmdline = {
+			keymap = { preset = "inherit" },
+			completion = { menu = { auto_show = true } },
+		},
 
 		completion = {
 			documentation = { auto_show = false },

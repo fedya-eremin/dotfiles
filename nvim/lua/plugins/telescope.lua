@@ -7,14 +7,6 @@ return {
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
 			telescope.setup({
-				defaults = {
-					-- old settings
-					-- initial_mode = "normal",
-					-- layout_strategy = "bottom_pane",
-					-- layout_config = {
-					-- 	prompt_position = "bottom",
-					-- },
-				},
 				pickers = {
 					find_files = {
 						previewer = false,
@@ -49,7 +41,6 @@ return {
 			local builtin = require("telescope.builtin")
 			telescope.load_extension("fzf")
 			telescope.load_extension("aerial")
-			telescope.load_extension("remote-sshfs")
 			vim.keymap.set("n", "<leader>v", builtin.find_files, {})
 			vim.keymap.set("n", "<A-v>", function()
 				builtin.find_files({ cwd = "." })
