@@ -8,6 +8,7 @@ return {
 
 			highlight = {
 				enable = true,
+                disable = {"gomod"},
 
 				additional_vim_regex_highlighting = true,
 			},

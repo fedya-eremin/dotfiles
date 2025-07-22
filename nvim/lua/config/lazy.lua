@@ -27,3 +27,4 @@ require("lazy").setup({
 })
 require("config.settings")
 require("config.keybindings")
+require("config.lsp")
