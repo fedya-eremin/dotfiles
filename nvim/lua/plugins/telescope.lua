@@ -27,6 +27,11 @@ return {
 					},
 					live_grep = {
 						theme = "dropdown",
+						-- mappings = {
+						-- 	n = {
+						-- 		["<C-q>"] = actions.smart_add_to_qflist,
+						-- 	},
+						-- },
 					},
 					git_files = {
 						theme = "dropdown",

@@ -1,12 +1,11 @@
+vim.opt.termguicolors = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.guicursor = ""
 vim.opt.showmode = false
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 
 vim.opt.wrap = false
 vim.opt.smartindent = true
@@ -27,26 +26,22 @@ vim.g.netrw_banner = 1
 vim.g.netrw_winsize = 25
 vim.diagnostic.config({
 	virtual_text = false,
-    signs = {
-	 text = {
-		[vim.diagnostic.severity.ERROR] = "󰚌",
-		[vim.diagnostic.severity.WARN] = "󰸰",
-		[vim.diagnostic.severity.HINT] = "󰯞",
-		[vim.diagnostic.severity.INFO] = "",
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰚌",
+			[vim.diagnostic.severity.WARN] = "󰸰",
+			[vim.diagnostic.severity.HINT] = "󰯞",
+			[vim.diagnostic.severity.INFO] = "",
+		},
 	},
-},
 })
+vim.g.diagnostics_visible = true
 vim.opt.hlsearch = true
 vim.opt.conceallevel = 0
 vim.opt.list = true
 vim.opt.listchars = "space:·,tab:··,lead:·,nbsp:·,trail:·"
 vim.opt.laststatus = 3
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "single",
-	width = 100,
-})
 vim.opt.clipboard = "unnamedplus"
 
 vim.o.winborder = "single"
-

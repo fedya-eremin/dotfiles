@@ -21,14 +21,13 @@ return {
 			prepend_args = { "--indent", "2" },
 		}
 
-		vim.api.nvim_create_autocmd("BufWritePost", {
+		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = "*",
 			callback = function(args)
 				require("conform").format({
-					async = false,
+					async = true,
 					quiet = true,
 					bufnr = args.buf,
-					timeout_ms = 500,
 				})
 			end,
 		})

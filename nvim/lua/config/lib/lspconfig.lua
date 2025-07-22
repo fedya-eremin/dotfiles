@@ -3,7 +3,7 @@ local bind = vim.keymap.set
 
 M.on_attach = function(_, bufnr)
 	local function opts(desc)
-		return { buffer = bufnr, desc = "LSP " .. desc }
+		return { buffer = true, desc = "LSP " .. desc }
 	end
 
 	bind("n", "K", vim.lsp.buf.hover, opts("View hover docs"))
@@ -22,6 +22,10 @@ local capabilities = {
 			dynamicRegistration = false,
 			lineFoldingOnly = true,
 		},
+		hover = {
+			border = "single",
+			width = 100,
+		},
 	},
 }
 
@@ -34,10 +38,10 @@ M.defaults = function()
 		end,
 	})
 	if vim.lsp.config then
-		vim.lsp.config("*", { capabilities = M.capabilities, root_markers = {".git"} })
+		vim.lsp.config("*", { capabilities = M.capabilities, root_markers = { ".git" } })
 		vim.lsp.config("lua_ls", {
-            cmd = {"lua-language-server"},
-            filetypes = {"lua"},
+			cmd = { "lua-language-server" },
+			filetypes = { "lua" },
 			settings = {
 				Lua = {
 					runtime = { version = "LuaJIT" },
