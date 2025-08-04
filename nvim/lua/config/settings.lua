@@ -1,20 +1,27 @@
-vim.opt.termguicolors = true
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.opt.guicursor = ""
-vim.opt.showmode = false
+vim.o.termguicolors = true
+vim.o.nu = true
+vim.o.relativenumber = true
+vim.o.guicursor = ""
+vim.o.showmode = false
 
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = false
 
-vim.opt.wrap = false
-vim.opt.smartindent = true
+vim.o.wrap = false
+vim.o.smartindent = true
 
-vim.opt.swapfile = true
-vim.opt.backup = false
-vim.opt.undofile = true
+vim.o.swapfile = true
+vim.o.backup = false
+vim.o.undofile = true
 
 vim.opt.iskeyword:append({ "-", "_" })
+
+vim.o.hlsearch = true
+vim.o.conceallevel = 0
+vim.o.list = true
+vim.o.listchars = "space:·,tab:··,lead:·,nbsp:·,trail:·"
+vim.o.laststatus = 3
 
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
@@ -36,12 +43,6 @@ vim.diagnostic.config({
 	},
 })
 vim.g.diagnostics_visible = true
-vim.opt.hlsearch = true
-vim.opt.conceallevel = 0
-vim.opt.list = true
-vim.opt.listchars = "space:·,tab:··,lead:·,nbsp:·,trail:·"
-vim.opt.laststatus = 3
 
 vim.opt.clipboard = "unnamedplus"
-
 vim.o.winborder = "single"

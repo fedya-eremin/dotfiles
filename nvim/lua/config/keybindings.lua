@@ -43,3 +43,5 @@ bind("n", "<A-h>", ":vertical resize -3<CR>", { silent = true })
 bind("n", "<A-l>", ":vertical resize +3<CR>", { silent = true })
 bind("n", "<A-k>", ":horizontal resize -3<CR>", { silent = true })
 bind("n", "<A-j>", ":horizontal resize +3<CR>", { silent = true })
+
+bind("n", "<A-d>", "<cmd>Trouble toggle diagnostics auto_preview=false warn_no_results=false<cr>", { silent = true })

@@ -49,7 +49,7 @@ floating_modifier Mod4
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym Mod4+q exec kitty
+bindsym Mod4+q exec alacritty
 bindsym Mod4+e exec thunar
 
 # kill focused window
@@ -146,6 +146,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 
 
 bindsym Mod4+Shift+s exec xfce4-screenshooter -r -c
+bindsym Mod4+Shift+f exec boomer
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

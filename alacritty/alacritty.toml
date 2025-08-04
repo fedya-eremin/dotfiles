@@ -1,3 +1,6 @@
+[colors]
+cursor = { cursor = "#e0c69f" }
+
 [colors.normal]
 black = "#4e614f"
 red = "#91362a"
@@ -24,27 +27,32 @@ foreground = "#e0c69f"
 
 [font]
 builtin_box_drawing = true
-size = 14.0
+size = 8.5
 
 [font.bold]
-family = "JetBrainsMono NF SemiBold"
-style = "SemiBold"
+family = "JetBrainsMono NF"
+style="Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono NF SemiBold"
+family = "JetBrainsMono NF"
 style = "SemiBold Italic"
 
 [font.italic]
-family = "JetBrainsMono NF Medium"
+family = "JetBrainsMono NF"
 style = "Medium Italic"
 
 [font.normal]
-family = "JetBrainsMono NF Medium"
+family = "JetBrainsMono NF"
+style = "Medium"
 
 [window]
 decorations = "none"
 dynamic_padding = true
 opacity = 0.95
+
+[cursor]
+style = {shape = "Block", blinking = "Never"}
+
 
 [window.padding]
 x = 0
