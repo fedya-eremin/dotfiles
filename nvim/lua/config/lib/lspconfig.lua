@@ -15,6 +15,17 @@ M.on_attach = function(_, bufnr)
 	bind("n", "<leader>rn", vim.lsp.buf.rename, opts("Rename symbol"))
 	bind("n", "<leader>ca", vim.lsp.buf.code_action, opts("View code actions"))
 end
+-- Close LSP hover windows automatically
+-- vim.api.nvim_create_autocmd({ "CursorMoved", "BufHidden", "InsertEnter" }, {
+-- 	callback = function()
+-- 		for _, win in ipairs(vim.api.nvim_list_wins()) do
+-- 			local config = vim.api.nvim_win_get_config(win)
+-- 			if config.relative ~= "" then -- this is a floating window
+-- 				vim.api.nvim_win_close(win, false)
+-- 			end
+-- 		end
+-- 	end,
+-- })
 
 local capabilities = {
 	textDocument = {

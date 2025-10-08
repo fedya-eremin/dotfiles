@@ -84,7 +84,7 @@
     sort = yes
     ### Text ###
 
-    font = Jetbrains Mono NL 12
+    font = Iosevka 14
 
     line_height = 0
 

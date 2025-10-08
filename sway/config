@@ -5,7 +5,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term kitty
+set $term alacritty
 set $menu killall rofi || rofi -modes "drun,ssh" -show drun -show-icons
 set $swww swaybg -i dotfiles/wallpapers/kanagawa_light.jpg -m fill
 
@@ -22,22 +22,21 @@ output eDP-1 pos 0 0
 output HDMI-A-1 resolution 1920x1080 position 0 0
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id pipewire
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bu
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec systemctl --user start xdg-desktop-portal-wlr
+exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec blueman-applet &
 exec dunst &
-exec Telegram
-exec zen-browser
+exec zen
 exec swaybg -i dotfiles/wallpapers/kanagawa_light.jpg -m fill
 exec $bar &
 exec autotiling &
 
 
 ##### WINDOWRULES #####
-for_window [app_id="(?i)thunar"] floating enable
-for_window [app_id="(?i)thunar"] resize set 1000 700
+for_window [app_id="(?i)nautilus"] floating enable
+for_window [app_id="(?i)nautilus"] resize set 1000 700
 for_window [app_id="zen"] move workspace 2
 for_window [app_id="org.telegram.desktop"] move workspace 3
 for_window [app_id="pavucontrol"] floating enable
@@ -60,7 +59,6 @@ input * {
 input type:touchpad {
     dwt enabled
 }
-
 
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -163,6 +161,7 @@ bindsym --to-code {
 
     # Move focus to the parent container
     $mod+a focus parent
+    $mod+d exec  nautilus
         
         
     XF86MonBrightnessUp exec brightnessctl set 2.5%+

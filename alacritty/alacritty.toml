@@ -27,22 +27,22 @@ foreground = "#e0c69f"
 
 [font]
 builtin_box_drawing = true
-size = 8.5
+size = 10
 
 [font.bold]
-family = "JetBrainsMono NF"
+family = "Iosevka"
 style="Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono NF"
+family = "Iosevka"
 style = "SemiBold Italic"
 
 [font.italic]
-family = "JetBrainsMono NF"
+family = "Iosevka"
 style = "Medium Italic"
 
 [font.normal]
-family = "JetBrainsMono NF"
+family = "Iosevka"
 style = "Medium"
 
 [window]

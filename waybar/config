@@ -48,7 +48,7 @@
     },
     "clock": {
         "format": "{:%H:%M:%S}",
-        "timezone": "Europe/Moscow",
+        "timezone": "Asia/Yekaterinburg",
         "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%b %d,%Y}",

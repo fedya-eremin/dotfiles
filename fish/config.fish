@@ -1,12 +1,12 @@
 ### INIT OPTIONS
 set fish_greeting
 if status is-interactive
-	pokemon-colorscripts-go -n charmander --no-title
+	pokemon-colorscripts -n charmander --no-title
     # carapace setup (override builtin completions)
+	# pyenv init - fish | source
     carapace _carapace | source
     direnv hook fish | source
-    pyenv init - | source
-    nvm use latest >> /dev/null
+	starship init fish | source
 end
 
 # NOTE: to get rid of poetry completion error, run:
@@ -37,7 +37,7 @@ alias sudoe="sudoedit"
 alias feh="feh --scale-down --geometry 1000x800"
 alias info="info --vi-keys"
 alias battery="cat /sys/class/power_supply/BAT1/capacity"
-alias v="nvim"
+alias v="bob run v0.11.4"
 alias pv="poetry run nvim"
 
 
@@ -81,6 +81,21 @@ function nvim-fzf
     end
 end
 
+function nodev
+	nvm use latest
+end
+
+function pydev
+	nodev > /dev/null
+	pyenv init - fish | source
+end
+
+function git-ssh-account
+    set -gx GIT_SSH_COMMAND "ssh -i ~/.ssh/$argv[1]"
+    echo "Set GIT_SSH_COMMAND to use SSH key: ~/.ssh/$argv[1]"
+end
+complete -c git-ssh-account -a "(ls ~/.ssh/)" -f -d "SSH key file"
+
 
 ### ENV
 set -a fish_user_paths $HOME/.local/bin $HOME/go/bin
@@ -94,7 +109,7 @@ set LANG en_US.UTF-8
 set LC_ALL en_US.UTF-8
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -U GOPATH $HOME/go
-set -U fish_user_paths $PYENV_ROOT/bin $GOPATH/bin $fish_user_paths
+set -U fish_user_paths $PYENV_ROOT/bin $GOPATH/bin $HOME/.cargo/bin $fish_user_paths
 # set -Ux QT_QPA_PLATFORMTHEME gtk3
 # set -Ux QT_STYLE_OVERRIDE gtk2
 
@@ -103,8 +118,9 @@ set -U fish_user_paths $PYENV_ROOT/bin $GOPATH/bin $fish_user_paths
 # opam configuration
 source /home/lemonade/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
-# cargo
-source "$HOME/.cargo/env.fish" >> /dev/null
+# cargo configuration
+source "$HOME/.cargo/env.fish"
+
 
 # pnpm
 set -gx PNPM_HOME "/home/lemonade/.local/share/pnpm"

@@ -1,6 +1,6 @@
 * {
-  font-family: "JetBrains Mono", FontAwesome;
-  font-size: 14.5px;
+  font-family: "Iosevka", sans-serif;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
@@ -62,7 +62,6 @@ button:hover {
   background-color: #eb4d4b;
 }
 
-#clock,
 #battery,
 #cpu,
 #memory,
@@ -83,12 +82,15 @@ button:hover {
   padding: 0 8px;
   color: #e0c69f;
   margin: 0;
-  border-left: 1.5px solid #e0c69f;
-  font-weight: bold;
+  font-weight: 500;
+  background: linear-gradient(to bottom, 
+    transparent 25%, 
+    #e0c69f 25%, 
+    #e0c69f 75%, 
+    transparent 75%) left / 1.5px 100% no-repeat;
 }
-
 #clock {
-  border-left: none;
+  color: #e0c69f;
 }
 
 @keyframes blink {
@@ -123,7 +125,7 @@ label:focus {
 }
 
 #pulseaudio.muted {
-  background-color: #222222;
+  /* background-color: #222222; */
   color: #999999;
 }
 

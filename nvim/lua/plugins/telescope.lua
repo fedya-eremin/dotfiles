@@ -46,7 +46,6 @@ return {
 			local builtin = require("telescope.builtin")
 			telescope.load_extension("fzf")
 			telescope.load_extension("aerial")
-			vim.keymap.set("n", "<leader>v", builtin.find_files, {})
 			vim.keymap.set("n", "<A-v>", function()
 				builtin.find_files({ cwd = "." })
 			end, {})
@@ -61,7 +60,6 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release "
-			.. "&& cmake --build build --config Release && cmake --install build --prefix build",
+		build = "make",
 	},
 }
